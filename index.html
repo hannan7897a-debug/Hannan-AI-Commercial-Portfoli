@@ -1,273 +1,766 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0f0f13">
-<meta name="description" content="Abdul Hannan — Cinematic AI Commercial Ads">
-<title>Abdul Hannan — Cinematic AI Commercial Ads</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{
- --bg:#0d0d10;--bg2:#121216;--panel:#15161b;--panel2:#1c1d22;--line:rgba(255,255,255,.085);
- --line2:rgba(0,240,255,.28);--text:#f5f7fb;--muted:#9299a8;--cyan:#00f0ff;--mint:#79f9cf;
- --violet:#9b4dff;--shadow:0 26px 80px rgba(0,0,0,.42);--max:1440px
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;background:var(--bg)}
-body{margin:0;background:
- radial-gradient(850px 550px at 20% -10%,rgba(0,240,255,.09),transparent 62%),
- radial-gradient(800px 600px at 100% 40%,rgba(155,77,255,.11),transparent 66%),var(--bg);
- color:var(--text);font:14px/1.6 "Plus Jakarta Sans",sans-serif;overflow-x:hidden}
-a{text-decoration:none;color:inherit}button{font:inherit}
-::selection{background:rgba(0,240,255,.22)}
-.wrap{width:min(calc(100% - 40px),var(--max));margin-inline:auto}
-.grid-bg{position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.42;background:
- linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
- linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
- background-size:72px 72px;mask-image:linear-gradient(to bottom,#000 0%,transparent 85%)}
-.nav{position:fixed;z-index:50;top:16px;left:50%;transform:translateX(-50%);width:min(calc(100% - 30px),1280px);
- height:68px;padding:9px 12px 9px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(15,16,20,.76);
- backdrop-filter:blur(20px);box-shadow:0 16px 45px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:10px;min-width:190px}.brand-mark{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
- border:1px solid rgba(0,240,255,.24);background:linear-gradient(145deg,#24262d,#121319);font:700 11px "Space Grotesk";color:var(--cyan)}
-.brand strong{display:block;font:600 15px "Space Grotesk";line-height:1}.brand small{display:block;color:#7f8795;text-transform:uppercase;letter-spacing:.14em;font-size:8px;margin-top:4px}
-.navlinks{display:flex;gap:5px}.navlinks a{padding:10px 11px;border-radius:999px;color:#a7afbe;font-size:10px;letter-spacing:.09em;text-transform:uppercase;transition:.25s}
-.navlinks a:hover,.navlinks a.active{color:#fff;background:rgba(255,255,255,.05)}
-.navright{display:flex;align-items:center;gap:8px}.social-mini{display:flex;gap:5px}.social-mini a{width:31px;height:31px;border-radius:50%;display:grid;place-items:center;
- border:1px solid var(--line);background:#ffffff03;color:#aeb6c5;font-size:8px;font-weight:600;transition:.25s}.social-mini a:hover{color:var(--cyan);border-color:var(--line2);transform:translateY(-2px)}
-.cta{height:42px;padding:0 16px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;gap:7px;background:linear-gradient(135deg,var(--cyan),#7df4ff);
- color:#062022;font:600 10px "Space Grotesk";letter-spacing:.1em;text-transform:uppercase;box-shadow:0 0 30px rgba(0,240,255,.12)}
-.hero{position:relative;padding:124px 0 82px;min-height:100svh;display:flex;align-items:center;overflow:hidden}
-.hero:after{content:"";position:absolute;width:520px;height:520px;right:-220px;top:180px;border-radius:50%;box-shadow:0 0 0 1px rgba(0,240,255,.05),0 0 80px rgba(155,77,255,.08)}
-.hero-top{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:18px}
-.badge{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border-radius:999px;background:#18191e;border:1px solid var(--line);color:#aab2c0;font-size:8px;letter-spacing:.13em;text-transform:uppercase}
-.badge b{color:var(--cyan)}.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--mint);box-shadow:0 0 12px var(--mint)}
-.hero-head{text-align:center;max-width:960px;margin:0 auto 28px}
-.hero-head h1{font:700 clamp(46px,7.2vw,88px)/.96 Syne,sans-serif;letter-spacing:-.05em;margin:0}
-.hero-head h1 span{display:block;background:linear-gradient(90deg,#fff 0%,#c9fbff 48%,#d6b6ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero-head p{max-width:700px;margin:22px auto 0;color:#a6aebb;font-size:14px;line-height:1.8}
-.hero-media{position:relative;width:100%;height:min(62vw,660px);min-height:360px;margin:0 auto 24px;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,.10);
- background:linear-gradient(145deg,#12141a,#0b0c11);box-shadow:var(--shadow);isolation:isolate}
-.hero-media:before{content:"";position:absolute;inset:-35%;z-index:-1;background:conic-gradient(from 0deg,transparent 0 18%,rgba(0,240,255,.13) 24%,transparent 34%,rgba(155,77,255,.13) 50%,transparent 62%);animation:spin 18s linear infinite}
-.hero-media:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,.32),transparent 24%,transparent 66%,rgba(0,0,0,.7))}
-.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#050609}
-.hero-orbit{position:absolute;inset:8% 12%;z-index:1;border:1px solid rgba(0,240,255,.16);border-radius:50%;transform:rotateX(68deg) rotateY(-8deg);animation:orbit 16s linear infinite;pointer-events:none}
-.hero-orbit:before,.hero-orbit:after{content:"";position:absolute;inset:12%;border:1px solid rgba(155,77,255,.12);border-radius:50%}.hero-orbit:after{inset:25%;border-color:rgba(121,249,207,.12);transform:translateZ(80px)}
-.hero-core{position:absolute;z-index:1;left:50%;top:50%;width:130px;height:130px;transform:translate(-50%,-50%) rotate(45deg);border:1px solid rgba(0,240,255,.12);
- box-shadow:0 0 50px rgba(0,240,255,.08);pointer-events:none}
-.hud{position:absolute;z-index:4;left:16px;right:16px;top:16px;display:flex;justify-content:space-between;gap:10px;align-items:center}
-.hud-bottom{position:absolute;z-index:4;left:16px;right:16px;bottom:16px;display:flex;justify-content:space-between;gap:10px;align-items:center}
-.hud-pill{padding:8px 10px;border-radius:9px;background:rgba(8,10,14,.72);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(12px);font-size:8px;letter-spacing:.13em;text-transform:uppercase;color:#dbe2ed}
-.hud-pill b{color:var(--cyan)}.sound{cursor:pointer;color:#dbe2ed}.sound:hover{border-color:var(--line2)}
-.hero-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.btn{height:46px;padding:0 18px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--line);font:600 10px "Space Grotesk";letter-spacing:.11em;text-transform:uppercase;transition:.25s}
-.btn:hover{transform:translateY(-2px);background:#ffffff08}.btn.primary{border-color:transparent;background:linear-gradient(135deg,var(--cyan),#8df9ff);color:#042023;box-shadow:0 12px 32px rgba(0,240,255,.12)}
-.btn.secondary{background:#1b1c21;color:#e4e7ed}.hero-social{display:flex;justify-content:center;gap:17px;flex-wrap:wrap;margin-top:18px;color:#7e8797}
-.hero-social a{font-size:9px;letter-spacing:.1em;text-transform:uppercase;transition:.2s}.hero-social a:hover{color:var(--cyan)}
-.section{position:relative;padding:112px 0}.section.alt{background:linear-gradient(180deg,transparent,rgba(255,255,255,.015),transparent)}
-.section-head{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:36px}.kicker{color:var(--cyan);font:600 9px "Space Grotesk";letter-spacing:.22em;text-transform:uppercase}
-.section-head h2{margin:8px 0 0;font:600 clamp(36px,5vw,60px)/1.02 Syne,sans-serif;letter-spacing:-.045em}.section-head p{max-width:470px;margin:0;color:var(--muted);font-size:12px;line-height:1.75}
-.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}.glass{border:1px solid var(--line);background:linear-gradient(145deg,rgba(23,24,29,.92),rgba(13,14,18,.86));box-shadow:var(--shadow);border-radius:24px}
-.about-main{padding:36px;min-height:300px;position:relative;overflow:hidden}.about-main:after{content:"AH";position:absolute;right:-35px;bottom:-50px;font:800 190px/1 Syne;color:rgba(0,240,255,.025);transform:rotate(-8deg)}
-.about-main h3{margin:8px 0 14px;font:600 29px/1.15 Syne}.about-main p{max-width:650px;color:#aab2c0;line-height:1.85;font-size:13px}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stat{padding:24px;min-height:142px;display:flex;flex-direction:column;justify-content:space-between}.stat strong{font:600 34px Syne;color:var(--cyan)}.stat span{color:#7e8796;font-size:9px;line-height:1.45;text-transform:uppercase;letter-spacing:.08em}
-.work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.project{grid-column:span 4}.project.wide{grid-column:span 6}
-.project-card{height:100%;background:#15161b;border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.35s;box-shadow:0 18px 55px rgba(0,0,0,.22)}
-.project-card:hover{transform:translateY(-5px);border-color:rgba(0,240,255,.24);box-shadow:0 30px 70px rgba(0,0,0,.38)}
-.project-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0b0c10}.project-media video{width:100%;height:100%;display:block;object-fit:cover;transition:.6s;filter:saturate(1.04)}
-.project-card:hover .project-media video{transform:scale(1.04)}
-.project-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(4,5,8,.75))}
-.project-meta{position:absolute;z-index:2;left:14px;right:14px;top:14px;display:flex;justify-content:space-between;gap:8px}.chip{padding:6px 8px;border:1px solid rgba(255,255,255,.11);border-radius:8px;background:rgba(6,8,11,.58);font-size:7px;letter-spacing:.13em;text-transform:uppercase}
-.project-meta .chip:last-child{color:var(--mint);border-color:rgba(121,249,207,.16)}.project-bottom{position:absolute;z-index:2;left:14px;right:14px;bottom:13px;display:flex;align-items:end;justify-content:space-between}
-.project-bottom h3{font:600 20px "Space Grotesk";margin:0 0 3px;letter-spacing:-.03em}.project-bottom p{margin:0;color:#a4adbb;font-size:9px}.arrow{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.12);background:rgba(7,9,12,.58);font-size:13px}
-.project-info{padding:15px 16px 17px}.project-info p{margin:0;color:#777f90;font-size:9px;letter-spacing:.03em}
-.philosophy{margin-top:18px;padding:27px 30px;border-radius:20px;border:1px solid var(--line);background:linear-gradient(90deg,rgba(0,240,255,.04),rgba(155,77,255,.04))}
-.philosophy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.pillar{padding:17px;border-radius:15px;border:1px solid var(--line);background:#101115}.pillar b{display:block;color:var(--cyan);font:600 10px "Space Grotesk";letter-spacing:.1em;text-transform:uppercase}.pillar span{display:block;margin-top:7px;color:#858e9e;font-size:10px;line-height:1.5}
-.services{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.service{min-height:240px;padding:23px;border:1px solid var(--line);border-radius:19px;background:linear-gradient(145deg,#17181d,#111216);position:relative;overflow:hidden;transition:.3s}.service:hover{transform:translateY(-4px);border-color:rgba(0,240,255,.22)}
-.service:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-70px;bottom:-70px;border:1px solid rgba(0,240,255,.1)}
-.service-num{color:#697281;font:600 9px "Space Grotesk";letter-spacing:.16em}.service-icon{margin-top:35px;width:42px;height:42px;border-radius:13px;display:grid;place-items:center;border:1px solid rgba(0,240,255,.17);background:rgba(0,240,255,.045);color:var(--cyan);font-size:16px}
-.service h3{font:600 18px Syne;margin:18px 0 7px}.service p{margin:0;color:#81899a;font-size:10px;line-height:1.65}
-.process{display:grid;grid-template-columns:1fr .9fr;gap:18px}.steps{display:grid;gap:10px}.step{display:grid;grid-template-columns:48px 1fr;gap:14px;padding:18px;border:1px solid var(--line);border-radius:17px;background:#121318;transition:.25s}.step:hover{border-color:rgba(0,240,255,.2);transform:translateX(5px)}
-.step-no{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;border:1px solid rgba(0,240,255,.17);color:var(--cyan);background:rgba(0,240,255,.035);font:600 11px "Space Grotesk"}.step h3{margin:1px 0 4px;font:600 17px "Space Grotesk"}.step p{margin:0;color:#7d8697;font-size:10px;line-height:1.6}
-.process-art{position:relative;min-height:420px;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:radial-gradient(circle at 50% 45%,rgba(0,240,255,.12),rgba(155,77,255,.04) 34%,transparent 68%),#101116;display:grid;place-items:center}
-.orbit{position:absolute;width:70%;aspect-ratio:1;border:1px solid rgba(0,240,255,.14);border-radius:50%;transform:rotateX(70deg) rotateY(-14deg);animation:orbit 14s linear infinite}.orbit:nth-child(2){width:48%;border-color:rgba(155,77,255,.16);animation-direction:reverse;transform:rotateX(60deg) rotateY(25deg)}.orbit:nth-child(3){width:33%;border-color:rgba(121,249,207,.12);animation-duration:10s;transform:rotateY(70deg) rotateZ(20deg)}
-.core{width:90px;height:90px;border-radius:25px;border:1px solid rgba(0,240,255,.32);background:linear-gradient(145deg,rgba(0,240,255,.17),rgba(155,77,255,.13));box-shadow:0 0 55px rgba(0,240,255,.13);display:grid;place-items:center;font:700 20px Syne}
-.contact-box{padding:38px;border-radius:26px;border:1px solid rgba(0,240,255,.16);background:linear-gradient(135deg,rgba(0,240,255,.055),rgba(155,77,255,.045) 55%,rgba(255,255,255,.015));box-shadow:var(--shadow);position:relative;overflow:hidden}
-.contact-box:after{content:"";position:absolute;width:420px;height:420px;right:-220px;top:-210px;border-radius:50%;border:1px solid rgba(0,240,255,.12);box-shadow:0 0 0 38px rgba(0,240,255,.018),0 0 0 76px rgba(155,77,255,.012)}
-.contact-box h2{margin:7px 0 12px;font:600 clamp(36px,5vw,62px)/1 Syne;letter-spacing:-.055em;max-width:860px}.contact-box h2 span{background:linear-gradient(90deg,#fff,#a7faff,#d1b5ff);-webkit-background-clip:text;background-clip:text;color:transparent}
-.contact-box p{max-width:610px;color:#9099a9;font-size:12px;line-height:1.75}.contact-links{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px;max-width:880px}
-.contact-link{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:10px;padding:12px;border-radius:15px;border:1px solid var(--line);background:rgba(8,9,13,.38);transition:.25s}.contact-link:hover{transform:translateY(-3px);border-color:rgba(0,240,255,.25);background:rgba(0,240,255,.04)}
-.contact-icon{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(0,240,255,.055);border:1px solid rgba(0,240,255,.15);color:var(--cyan)}.contact-icon svg{width:20px;height:20px}
-.contact-link small{display:block;color:#687385;font-size:7px;letter-spacing:.12em;text-transform:uppercase}.contact-link strong{font:600 14px "Space Grotesk"}.contact-link>b{color:#6f798a}
-.footer{padding:28px 0 38px;display:grid;grid-template-columns:1.4fr .7fr .7fr;gap:20px;border-top:1px solid rgba(255,255,255,.06);color:#6e7685;font-size:9px}
-.footer h4{margin:0 0 8px;color:var(--cyan);font:600 8px "Space Grotesk";letter-spacing:.18em;text-transform:uppercase}.footer nav{display:grid;gap:5px}.footer a:hover{color:#fff}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .75s cubic-bezier(.2,.7,.2,1)}.reveal.show{opacity:1;transform:none}
-.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(4,5,8,.84);backdrop-filter:blur(16px)}.modal.open{display:flex}
-.modal-box{width:min(1040px,100%);max-height:92vh;overflow:auto;border:1px solid rgba(255,255,255,.1);border-radius:22px;background:#111216;box-shadow:0 50px 120px rgba(0,0,0,.6)}
-.modal-head{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid rgba(255,255,255,.06)}.modal-title{font:600 16px "Space Grotesk"}.close{width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:#191a20;color:#fff;cursor:pointer}
-.modal-media{background:#050609}.modal-media video{width:100%;max-height:64vh;display:block;object-fit:contain}.modal-body{padding:20px}.modal-body p{color:#8d96a6;font-size:11px;line-height:1.7}.tags{display:flex;gap:6px;flex-wrap:wrap}.tags span{padding:5px 8px;border:1px solid rgba(0,240,255,.13);border-radius:8px;color:#8cefeb;font-size:7px;text-transform:uppercase;letter-spacing:.1em}
-@keyframes spin{to{transform:rotate(360deg)}}@keyframes orbit{to{transform:rotateX(70deg) rotateY(-14deg) rotateZ(360deg)}}
-@media(max-width:1000px){.navlinks{display:none}.navright{margin-left:auto}.hero{padding-top:108px}.hero-media{height:min(68vw,560px)}.about-grid,.process{grid-template-columns:1fr}.services{grid-template-columns:1fr 1fr}.footer{grid-template-columns:1fr 1fr}.contact-links{grid-template-columns:1fr 1fr}}
-@media(max-width:680px){
- .wrap{width:min(calc(100% - 24px),var(--max))}.nav{top:8px;width:calc(100% - 14px);height:58px;padding:7px 8px 7px 9px}.brand{min-width:auto}.brand-mark{width:36px;height:36px}.brand strong{font-size:13px}.brand small{font-size:7px}.social-mini,.cta{display:none}
- .hero{padding:84px 0 68px}.hero-top{gap:6px}.badge{font-size:7px;padding:6px 8px}.hero-head h1{font-size:44px}.hero-head p{font-size:12px;margin-top:16px}.hero-media{height:54vh;min-height:270px;border-radius:20px;margin-top:18px}.hud{left:10px;right:10px;top:10px}.hud-bottom{left:10px;right:10px;bottom:10px}.hud-pill{padding:7px 8px;font-size:6px}.hero-orbit{inset:13% 6%}.hero-core{width:88px;height:88px}.hero-actions{display:grid;grid-template-columns:1fr 1fr}.btn{height:44px;font-size:9px;padding:0 10px}.hero-social{gap:12px}.section{padding:82px 0}.section-head{display:block;margin-bottom:28px}.section-head h2{font-size:40px}.section-head p{margin-top:15px}.about-main{padding:26px;min-height:0}.about-main h3{font-size:26px}.stats{gap:9px}.stat{min-height:118px;padding:18px}.stat strong{font-size:30px}.work-grid{display:grid;grid-template-columns:1fr}.project,.project.wide{grid-column:span 1}.project-card{border-radius:18px}.project-media{aspect-ratio:1.08/1}.project-bottom h3{font-size:19px}.philosophy{padding:22px}.philosophy-grid{grid-template-columns:1fr}.services{grid-template-columns:1fr}.service{min-height:205px}.process-art{min-height:310px}.contact-box{padding:26px 20px;border-radius:22px}.contact-box h2{font-size:41px}.contact-links{grid-template-columns:1fr;gap:8px}.contact-link{padding:10px}.footer{grid-template-columns:1fr;gap:18px}.modal{padding:8px}.modal-box{max-height:95vh;border-radius:17px}.modal-media video{max-height:57vh}.modal-body{padding:16px}
-}
-@media(max-width:390px){.hero-head h1{font-size:38px}.hero-media{height:47vh}.hero-actions{grid-template-columns:1fr}.section-head h2{font-size:36px}.contact-box h2{font-size:37px}}
-@media(min-width:1800px){.wrap{width:min(calc(100% - 72px),1680px)}.hero-media{height:min(58vh,760px)}.hero-head h1{font-size:92px}.section{padding:150px 0}}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
-</style>
-</head>
-<body>
-<div class="grid-bg"></div>
+<!DOCTYPE html>
 
-<header class="nav">
-  <a class="brand" href="#top"><span class="brand-mark">AH</span><span><strong>Abdul Hannan</strong><small>AI Commercial Director</small></span></a>
-  <nav class="navlinks">
-    <a href="#work">Work</a><a href="#services">Services</a><a href="#process">Process</a><a href="#about">About</a><a href="#contact">Contact</a>
-  </nav>
-  <div class="navright">
-    <div class="social-mini"><a href="https://instagram.com/abdul_hannan27" target="_blank" rel="noopener">IG</a><a href="https://wa.me/923183167515" target="_blank" rel="noopener">WA</a><a href="https://www.youtube.com/@ahqsworld" target="_blank" rel="noopener">YT</a></div>
-    <a class="cta" href="#contact">Let's Talk ↗</a>
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Abdul Hannan — Cinematic AI Commercial Ads</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;family=Syne:wght@600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-container": "#7701d0", "surface-charcoal": "#0F0F13", "tertiary-fixed": "#79f9cf", "secondary": "#dcb8ff", "glow-cyan": "rgba(0, 240, 255, 0.15)", "on-surface": "#e5e1e4", "surface-container-lowest": "#0e0e10", "surface-container": "#201f22", "surface-container-low": "#1c1b1e", "inverse-primary": "#006970", "border-glow": "rgba(0, 240, 255, 0.35)", "outline": "#849495", "surface-tint": "#00dbe9", "on-secondary": "#480081", "surface-container-highest": "#353437", "surface": "#131315", "tertiary": "#d7ffed", "inverse-surface": "#e5e1e4", "primary": "#dbfcff", "primary-fixed": "#7df4ff", "outline-variant": "#3b494b", "on-primary-fixed-variant": "#004f54", "text-primary": "#F5F7FB", "tertiary-fixed-dim": "#5adcb4", "surface-variant": "#353437", "on-secondary-fixed-variant": "#6700b5", "on-tertiary-fixed": "#002117", "on-tertiary": "#00382a", "on-background": "#e5e1e4", "on-tertiary-fixed-variant": "#00513e", "on-error": "#690005", "primary-container": "#00f0ff", "inverse-on-surface": "#313032", "background": "#131315", "on-surface-variant": "#b9cacb", "tertiary-container": "#6ff0c7", "on-primary": "#00363a", "on-secondary-container": "#dcb7ff", "border-subtle": "rgba(255, 255, 255, 0.08)", "secondary-fixed": "#efdbff", "on-secondary-fixed": "#2c0051", "glow-violet": "rgba(138, 43, 226, 0.18)", "secondary-fixed-dim": "#dcb8ff", "surface-dim": "#131315", "primary-fixed-dim": "#00dbe9", "error-container": "#93000a", "on-primary-fixed": "#002022", "on-tertiary-container": "#006c53", "on-primary-container": "#006970", "surface-bright": "#39393b", "text-muted": "#7E8494", "surface-elevated": "#15161E", "on-error-container": "#ffdad6", "error": "#ffb4ab", "surface-container-high": "#2a2a2c" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "3.5rem", "space-sm": "0.75rem", "space-lg": "2rem", "space-md": "1.25rem", "margin": "4rem", "space-xs": "0.375rem", "gutter-mobile": "1rem", "margin-mobile": "1.25rem", "gutter": "1.5rem" }, "fontFamily": { "headline-hero": [ "Syne" ], "headline-sm": [ "Plus Jakarta Sans" ], "body-md": [ "Plus Jakarta Sans" ], "body-sm": [ "Plus Jakarta Sans" ], "headline-lg": [ "Syne" ], "label-md": [ "Space Grotesk" ], "label-lg": [ "Space Grotesk" ], "headline-md": [ "Syne" ], "label-sm": [ "Space Grotesk" ], "headline-lg-mobile": [ "Syne" ], "headline-hero-mobile": [ "Syne" ], "body-lg": [ "Plus Jakarta Sans" ] }, "fontSize": { "headline-hero": [ "64px", { "lineHeight": "72px", "letterSpacing": "-0.03em", "fontWeight": "700" } ], "headline-sm": [ "20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "body-md": [ "15px", { "lineHeight": "24px", "fontWeight": "400" } ], "body-sm": [ "13px", { "lineHeight": "20px", "fontWeight": "400" } ], "headline-lg": [ "44px", { "lineHeight": "52px", "letterSpacing": "-0.025em", "fontWeight": "600" } ], "label-md": [ "11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" } ], "label-lg": [ "13px", { "lineHeight": "18px", "letterSpacing": "0.06em", "fontWeight": "600" } ], "headline-md": [ "28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "label-sm": [ "10px", { "lineHeight": "14px", "letterSpacing": "0.1em", "fontWeight": "500" } ], "headline-lg-mobile": [ "30px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "headline-hero-mobile": [ "38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "body-lg": [ "18px", { "lineHeight": "28px", "fontWeight": "400" } ] } } } }</script></head><body class="bg-surface font-body-md text-body-md text-on-surface selection:bg-primary-container selection:text-on-primary-container min-h-screen relative antialiased"><div class="pointer-events-none fixed inset-0 z-0 overflow-hidden"><div class="absolute -top-[15%] left-[20%] w-[650px] h-[650px] rounded-full bg-glow-cyan blur-[130px]"></div><div class="absolute top-[40%] -right-[15%] w-[600px] h-[600px] rounded-full bg-glow-violet blur-[140px]"></div></div><header class="fixed top-0 left-0 w-full z-50 py-space-sm px-gutter-mobile md:px-margin pointer-events-none"><div class="max-w-[1440px] mx-auto"><div class="h-20 w-full rounded-full bg-surface-charcoal/80 backdrop-blur-xl px-gutter flex items-center justify-between pointer-events-auto shadow-[0_12px_40px_rgba(0,0,0,0.45)]"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-xs group" data-path="portfolio-showcase" href="#"><div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center group-hover:bg-primary-container transition-colors duration-300"><span class="font-label-lg text-label-lg text-primary group-hover:text-on-primary-container uppercase transition-colors">AH</span></div><div class="hidden sm:flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none tracking-tight">Abdul Hannan</span><span class="font-label-sm text-label-sm text-primary uppercase tracking-widest mt-1">AI Commercial Director</span></div></a><div class="hidden lg:flex items-center gap-space-xs pl-space-sm"><a class="inline-flex items-center gap-1 px-space-xs py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm uppercase" href="https://instagram.com/abdul_hannan27" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-[14px]">photo_camera</span><span>IG</span></a><a class="inline-flex items-center gap-1 px-space-xs py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm uppercase" href="https://wa.me/923183167515" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-[14px]">chat</span><span>WA</span></a><a class="inline-flex items-center gap-1 px-space-xs py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm uppercase" href="https://www.youtube.com/@ahqsworld" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-[14px]">smart_display</span><span>YT</span></a></div></div><nav class="hidden md:flex items-center gap-space-md" data-active-classes="text-primary font-semibold"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="work" href="#work">Work</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="services" href="#services">Services</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="process" href="#process">Process</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="about" href="#about">About</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="contact" href="#contact">Contact</a></nav><div class="flex items-center gap-space-sm"><a class="inline-flex items-center gap-2 h-11 px-space-md rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase tracking-wider hover:shadow-[0_0_24px_rgba(0,240,255,0.45)] -translate-y-0 hover:-translate-y-0.5 transition-all duration-300" data-path="contact" href="#contact"><span>Let's Talk</span><span class="material-symbols-outlined text-[16px]">arrow_outward</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-20 bg-surface relative z-10"><div class="flex flex-col w-full text-on-surface">
+<!-- HERO SECTION -->
+<section class="relative w-full pt-8 pb-space-xl px-gutter-mobile md:px-margin overflow-hidden">
+<div class="max-w-[1440px] mx-auto flex flex-col items-center">
+<!-- Top Badges Row -->
+<div class="flex flex-wrap items-center justify-center gap-space-xs mb-space-md text-center">
+<span class="inline-flex items-center gap-2 px-space-sm py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm uppercase tracking-widest shadow-sm">
+<span class="material-symbols-outlined text-[14px]">movie_filter</span>
+          AI COMMERCIAL ADS / CREATIVE STUDIO
+        </span>
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+<span class="text-primary-container font-semibold">01</span>
+<span>/ Portfolio Intro Film (10s · Cinematic)</span>
+<button class="ml-1 inline-flex items-center gap-1 text-primary hover:text-white transition-colors cursor-pointer" id="intro-modal-btn">
+<span class="material-symbols-outlined text-[14px]">play_circle</span>
+<span>Play Intro</span>
+</button>
+</div>
+</div>
+<!-- Main Hero Heading & Statement -->
+<div class="max-w-4xl text-center space-y-space-sm mb-space-lg">
+<h1 class="font-headline-hero text-headline-hero text-text-primary tracking-tight">
+          Hi, I'm Abdul Hannan.<br class="hidden sm:inline"/>
+<span class="bg-gradient-to-r from-primary-container via-primary to-secondary bg-clip-text text-transparent">
+            I turn ideas into visual impact.
+          </span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+          I create <strong class="text-primary font-medium">cinematic AI commercial ads</strong>, product visuals, and brand-focused creative experiences designed to make products feel memorable — from first concept to final cut.
+        </p>
+</div>
+<!-- Cinematic Intro Film -->
+<div class="relative w-full h-[420px] sm:h-[500px] md:h-[600px] lg:h-[650px] rounded-2xl overflow-hidden bg-black shadow-2xl flex items-center justify-center mb-space-lg border border-white/10 stitch-hero-film">
+  <video id="intro-video" class="absolute inset-0 w-full h-full object-cover" src="assets/intro.mp4" autoplay muted loop playsinline controls preload="auto"></video>
+  <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,.20)_0%,transparent_34%,transparent_65%,rgba(0,0,0,.72)_100%)] pointer-events-none"></div>
+  <div class="absolute top-4 left-4 z-20 flex flex-wrap items-center gap-2">
+    <div class="px-3 py-1.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-md font-label-sm text-label-sm text-primary uppercase flex items-center gap-2 shadow-lg border border-white/5">
+      <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> PORTFOLIO INTRO / 10S
+    </div>
+    <div class="hidden sm:block px-3 py-1.5 rounded-full bg-surface-container-lowest/70 backdrop-blur-md font-label-sm text-label-sm text-on-surface-variant uppercase border border-white/5">AI COMMERCIAL DIRECTOR</div>
   </div>
-</header>
-
-<main id="top">
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-top reveal">
-      <span class="badge"><i class="badge-dot"></i> AI Commercial Ads / Creative Studio</span>
-      <span class="badge"><b>01</b> / Portfolio Intro Film · 10s · Cinematic</span>
+  <div class="absolute bottom-4 left-4 right-4 z-20 flex items-end justify-between gap-4 pointer-events-none">
+    <div class="px-3 py-2 rounded-xl bg-surface-container-lowest/75 backdrop-blur-md border border-white/5">
+      <span class="block font-label-sm text-label-sm text-primary uppercase tracking-widest">Abdul Hannan</span>
+      <span class="block font-body-sm text-body-sm text-on-surface-variant mt-0.5">Cinematic AI Commercial Ads</span>
     </div>
-
-    <div class="hero-head reveal">
-      <h1>Hi, I'm Abdul Hannan.<span>I turn ideas into visual impact.</span></h1>
-      <p>I create <b style="color:#fff">cinematic AI commercial ads</b>, product visuals, and brand-focused creative experiences designed to make products feel memorable — from first concept to final cut.</p>
-    </div>
-
-    <div class="hero-media reveal">
-      <video class="hero-video" id="introVideo" src="assets/intro.mp4" autoplay muted loop playsinline controls preload="auto"></video>
-      <div class="hero-orbit"></div><div class="hero-core"></div>
-      <div class="hud"><span class="hud-pill"><b>LIVE REEL</b> / ABDUL HANNAN</span><span class="hud-pill">NEURAL VISUALS · 4K</span></div>
-      <div class="hud-bottom"><span class="hud-pill">Portfolio Intro / AI Commercial Creator</span><button class="hud-pill sound" id="soundBtn">Sound Off</button></div>
-    </div>
-
-    <div class="hero-actions reveal">
-      <a class="btn primary" href="#work">Explore My Work ↗</a><button class="btn secondary" id="playIntro" type="button">Replay Intro ▶</button>
-    </div>
-    <div class="hero-social reveal">
-      <a href="https://instagram.com/abdul_hannan27" target="_blank" rel="noopener">Instagram ↗</a><span>/</span>
-      <a href="https://wa.me/923183167515" target="_blank" rel="noopener">WhatsApp ↗</a><span>/</span>
-      <a href="https://www.youtube.com/@ahqsworld" target="_blank" rel="noopener">YouTube ↗</a>
-    </div>
-  </div>
-</section>
-
-<section class="section alt" id="about"><div class="wrap">
-  <div class="section-head reveal"><div><div class="kicker">01 — About</div><h2>Built for brands<br>that want to move.</h2></div><p>A focused creative practice around AI-powered commercial storytelling — from the first idea to the final visual.</p></div>
-  <div class="about-grid">
-    <div class="glass about-main reveal"><div class="kicker">The idea behind the work</div><h3>Creative thinking, cinematic execution.</h3><p>I use AI tools as a production engine — not as the idea itself. The goal is clear concepts, polished visuals, strong product presentation, and a finished commercial that feels intentional and distinctly premium.</p></div>
-    <div class="stats">
-      <div class="glass stat reveal"><strong>01</strong><span>Core focus<br>AI Commercial Ads</span></div>
-      <div class="glass stat reveal"><strong>05</strong><span>Featured projects<br>in this portfolio</span></div>
-      <div class="glass stat reveal"><strong>3D</strong><span>Interactive presentation<br>with depth + motion</span></div>
-      <div class="glass stat reveal"><strong>100%</strong><span>Project-led<br>creative showcase</span></div>
-    </div>
-  </div>
-</div></section>
-
-<section class="section" id="work"><div class="wrap">
-  <div class="section-head reveal"><div><div class="kicker">02 — Selected Work</div><h2>Commercials made<br>to be remembered.</h2></div><p>Click any commercial to open the full video viewer with native playback controls.</p></div>
-  <div class="work-grid">
-    <article class="project reveal"><div class="project-card" data-title="Blue Lady" data-category="FRAGRANCE" data-type="AI commercial / perfume" data-desc="A cinematic fragrance commercial built around atmosphere, product presence and premium visual storytelling." data-video="assets/blue lady.mp4"><div class="project-media"><video src="assets/blue lady.mp4" muted loop autoplay playsinline preload="metadata"></video><div class="project-meta"><span class="chip">01</span><span class="chip">FRAGRANCE</span></div><div class="project-bottom"><div><h3>Blue Lady</h3><p>AI commercial / perfume</p></div><span class="arrow">↗</span></div></div><div class="project-info"><p>Product Hero · Cinematic · Premium Visual</p></div></div></article>
-    <article class="project reveal"><div class="project-card" data-title="Napoleon Boss" data-category="FRAGRANCE" data-type="AI commercial / fragrance" data-desc="A bold fragrance concept focused on premium styling, dramatic composition and a strong product reveal." data-video="assets/napoleon.mp4"><div class="project-media"><video src="assets/napoleon.mp4" muted loop autoplay playsinline preload="metadata"></video><div class="project-meta"><span class="chip">02</span><span class="chip">FRAGRANCE</span></div><div class="project-bottom"><div><h3>Napoleon Boss</h3><p>AI commercial / fragrance</p></div><span class="arrow">↗</span></div></div><div class="project-info"><p>Luxury · Visual Direction · Product Reveal</p></div></div></article>
-    <article class="project reveal"><div class="project-card" data-title="Growing With Care" data-category="BABY CARE" data-type="AI commercial / nutrition" data-desc="A warm product story designed to communicate care, trust and a clean family-oriented visual language." data-video="assets/NI 1.mp4"><div class="project-media"><video src="assets/NI 1.mp4" muted loop autoplay playsinline preload="metadata"></video><div class="project-meta"><span class="chip">03</span><span class="chip">BABY CARE</span></div><div class="project-bottom"><div><h3>Growing With Care</h3><p>AI commercial / nutrition</p></div><span class="arrow">↗</span></div></div><div class="project-info"><p>Storytelling · Product Focus · Warm Visuals</p></div></div></article>
-    <article class="project wide reveal"><div class="project-card" data-title="Pond's Bright Beauty" data-category="SKINCARE" data-type="AI commercial / skincare" data-desc="A polished skincare visual direction using clean compositions, beauty lighting and product-led framing." data-video="assets/ponds.mp4"><div class="project-media"><video src="assets/ponds.mp4" muted loop autoplay playsinline preload="metadata"></video><div class="project-meta"><span class="chip">04</span><span class="chip">SKINCARE</span></div><div class="project-bottom"><div><h3>Pond's Bright Beauty</h3><p>AI commercial / skincare</p></div><span class="arrow">↗</span></div></div><div class="project-info"><p>Skincare · Beauty · Product Visual</p></div></div></article>
-    <article class="project wide reveal"><div class="project-card" data-title="Shangrila Umami Sauce" data-category="FOOD &amp; BEVERAGE" data-type="AI commercial / food" data-desc="A food commercial concept built to make the product visually appetizing while keeping the pack easy to recognize." data-video="assets/umami sauce.mp4"><div class="project-media"><video src="assets/umami sauce.mp4" muted loop autoplay playsinline preload="metadata"></video><div class="project-meta"><span class="chip">05</span><span class="chip">FOOD &amp; BEVERAGE</span></div><div class="project-bottom"><div><h3>Shangrila Umami Sauce</h3><p>AI commercial / food</p></div><span class="arrow">↗</span></div></div><div class="project-info"><p>Food · Packshot · Commercial</p></div></div></article>
-  </div>
-  <div class="philosophy reveal"><div class="kicker">Creative Philosophy</div><h3 style="margin:7px 0 0;font:600 26px Syne">Not just pretty frames.</h3><p style="margin:8px 0 0;color:#858e9d;font-size:11px;max-width:700px">Each commercial is shaped around product visibility, visual hierarchy, pacing and a clear reason for the viewer to keep watching.</p><div class="philosophy-grid"><div class="pillar"><b>01 · Hook</b><span>Grab attention early.</span></div><div class="pillar"><b>02 · Product</b><span>Keep the hero readable.</span></div><div class="pillar"><b>03 · Payoff</b><span>End with a memorable visual.</span></div></div></div>
-</div></section>
-
-<section class="section alt" id="services"><div class="wrap">
-  <div class="section-head reveal"><div><div class="kicker">03 — Services</div><h2>From concept<br>to final ad.</h2></div><p>AI-powered visual production and commercial storytelling for brands, agencies and creators.</p></div>
-  <div class="services">
-    <article class="service reveal"><div class="service-num">01</div><div class="service-icon">✦</div><h3>AI Commercial Ads</h3><p>Cinematic product-focused commercials with AI generation, motion and editorial pacing.</p></article>
-    <article class="service reveal"><div class="service-num">02</div><div class="service-icon">◫</div><h3>Product Visuals</h3><p>Premium hero scenes, campaign visuals and product-led frames designed to attract attention.</p></article>
-    <article class="service reveal"><div class="service-num">03</div><div class="service-icon">✎</div><h3>Creative Direction</h3><p>Visual concepts, shot planning, storyboard thinking and mood direction for a stronger ad.</p></article>
-    <article class="service reveal"><div class="service-num">04</div><div class="service-icon">◎</div><h3>AI Motion &amp; Editing</h3><p>Motion prompts, pacing, transitions and final edits that turn still ideas into moving pieces.</p></article>
-  </div>
-</div></section>
-
-<section class="section" id="process"><div class="wrap">
-  <div class="section-head reveal"><div><div class="kicker">04 — Process</div><h2>A simple system.<br>A sharper result.</h2></div><p>Every project follows a clear progression so the final commercial stays focused on the product and the idea.</p></div>
-  <div class="process">
-    <div class="steps">
-      <article class="step reveal"><div class="step-no">01</div><div><h3>Idea &amp; Direction</h3><p>Define the product, audience, visual mood and central commercial idea.</p></div></article>
-      <article class="step reveal"><div class="step-no">02</div><div><h3>Storyboard &amp; Prompts</h3><p>Break the idea into clear shots and build the visual prompts around them.</p></div></article>
-      <article class="step reveal"><div class="step-no">03</div><div><h3>Generate &amp; Animate</h3><p>Create the visuals, add motion, refine continuity and shape the sequence.</p></div></article>
-      <article class="step reveal"><div class="step-no">04</div><div><h3>Edit &amp; Deliver</h3><p>Polish pacing, transitions and presentation into a ready-to-use commercial.</p></div></article>
-    </div>
-    <div class="process-art reveal"><div class="orbit"></div><div class="orbit"></div><div class="orbit"></div><div class="core">AH</div></div>
-  </div>
-</div></section>
-
-<section class="section alt" id="contact"><div class="wrap">
-  <div class="contact-box reveal">
-    <div class="kicker">05 — Let's Work</div>
-    <h2>Got a product?<br><span>Let's make it move.</span></h2>
-    <p>For AI commercial ads, product visuals and creative collaboration, start a direct conversation.</p>
-    <div class="contact-links">
-      <a class="contact-link" href="https://wa.me/923183167515" target="_blank" rel="noopener"><span class="contact-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M20.4 11.6a8.4 8.4 0 0 1-12.55 7.3L4 20l1.2-3.66A8.4 8.4 0 1 1 20.4 11.6Z" stroke="currentColor" stroke-width="1.7"/><path d="M8.5 8.1c.2-.38.45-.4.75.35l.62 1.48c.08.2.06.35-.05.5l-.45.58c-.12.15-.1.3 0 .48.38.68 1.03 1.33 1.78 1.72.2.1.34.1.47-.06l.55-.67c.12-.16.28-.19.5-.1l1.42.67c.21.1.34.17.39.3.06.13.06.75-.19 1.12-.25.36-.88.7-1.22.72-.31.02-1.01-.13-2.06-.64-1.14-.55-2-1.47-2.56-2.2-.56-.73-1.03-1.62-1.14-2.04-.11-.42-.05-.84.08-1.16Z" fill="currentColor"/></svg></span><span><small>MESSAGE ME</small><strong>WhatsApp</strong></span><b>↗</b></a>
-      <a class="contact-link" href="https://instagram.com/abdul_hannan27" target="_blank" rel="noopener"><span class="contact-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.7"/><circle cx="17.3" cy="6.8" r="1" fill="currentColor"/></svg></span><span><small>SEE MORE WORK</small><strong>Instagram</strong></span><b>↗</b></a>
-      <a class="contact-link" href="https://www.youtube.com/@ahqsworld" target="_blank" rel="noopener"><span class="contact-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3.2" y="6.4" width="17.6" height="11.2" rx="3.5" stroke="currentColor" stroke-width="1.7"/><path d="m10.4 9.4 5 2.6-5 2.6V9.4Z" fill="currentColor"/></svg></span><span><small>WATCH THE CHANNEL</small><strong>YouTube</strong></span><b>↗</b></a>
-    </div>
-  </div>
-</div></section>
-</main>
-
-<footer class="wrap footer">
-  <div><h4>Abdul Hannan</h4><span>AI Commercial Ad Creator · Cinematic · Product-led · Social-ready</span></div>
-  <div><h4>Navigation</h4><nav><a href="#work">Selected Work</a><a href="#services">Services</a><a href="#process">Process</a><a href="#about">About</a><a href="#contact">Contact</a></nav></div>
-  <div><h4>Transmission</h4><nav><a href="https://instagram.com/abdul_hannan27" target="_blank" rel="noopener">Instagram ↗</a><a href="https://wa.me/923183167515" target="_blank" rel="noopener">WhatsApp ↗</a><a href="https://www.youtube.com/@ahqsworld" target="_blank" rel="noopener">YouTube ↗</a></nav></div>
-</footer>
-
-<div class="modal" id="modal" aria-hidden="true">
-  <div class="modal-box">
-    <div class="modal-head"><div><div class="kicker" id="modalCat">COMMERCIAL</div><div class="modal-title" id="modalTitle">Project</div></div><button class="close" id="close" aria-label="Close">×</button></div>
-    <div class="modal-media"><video id="modalVideo" controls playsinline preload="metadata"></video></div>
-    <div class="modal-body"><p id="modalDesc"></p><div class="tags" id="modalTags"></div></div>
+    <button class="pointer-events-auto inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-surface-container-lowest/75 backdrop-blur-md border border-white/10 text-on-surface hover:text-primary transition-colors font-label-sm text-label-sm uppercase" id="intro-sound-btn" type="button">
+      <span class="material-symbols-outlined text-[16px]" id="intro-sound-icon">volume_off</span><span id="intro-sound-label">Sound Off</span>
+    </button>
   </div>
 </div>
-
+<!-- Action Buttons & Channels -->
+<div class="flex flex-col sm:flex-row items-center gap-space-md mb-space-md w-full justify-center">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-space-lg h-12 rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase tracking-wider hover:shadow-[0_0_28px_rgba(0,240,255,0.45)] transition-all transform hover:-translate-y-0.5" href="#work">
+<span>Explore My Work</span>
+<span class="material-symbols-outlined text-[18px]">arrow_outward</span>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-space-lg h-12 rounded-full bg-surface-container-high text-on-surface hover:text-primary font-label-lg text-label-lg uppercase tracking-wider hover:bg-surface-container-highest transition-all" href="#contact">
+<span>Let's Work</span>
+<span class="material-symbols-outlined text-[18px]">north_east</span>
+</a>
+</div>
+<!-- Social Channels Strip -->
+<div class="flex items-center gap-space-md py-2 text-on-surface-variant">
+<a class="inline-flex items-center gap-1.5 font-label-sm text-label-sm uppercase hover:text-primary transition-colors" href="https://instagram.com/abdul_hannan27" rel="noopener noreferrer" target="_blank">
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+<span>Instagram ↗</span>
+</a>
+<span class="text-surface-container-highest">/</span>
+<a class="inline-flex items-center gap-1.5 font-label-sm text-label-sm uppercase hover:text-primary transition-colors" href="https://wa.me/923183167515" rel="noopener noreferrer" target="_blank">
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"></path></svg>
+<span>WhatsApp ↗</span>
+</a>
+<span class="text-surface-container-highest">/</span>
+<a class="inline-flex items-center gap-1.5 font-label-sm text-label-sm uppercase hover:text-primary transition-colors" href="https://www.youtube.com/@ahqsworld" rel="noopener noreferrer" target="_blank">
+<svg class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+<span>YouTube ↗</span>
+</a>
+</div>
+</div>
+</section>
+<!-- 01 ABOUT SECTION -->
+<section class="w-full py-space-xl px-gutter-mobile md:px-margin bg-surface-container-low/40" id="about">
+<div class="max-w-[1440px] mx-auto">
+<!-- Section Tag & Title -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
+<div>
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest block mb-2">01 — About</span>
+<h2 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">
+            Built for brands<br/>that want to move.
+          </h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          A focused creative practice around AI-powered commercial storytelling — from the first idea to the final visual.
+        </p>
+</div>
+<!-- Philosophy & Manifesto Split -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center mb-space-xl">
+<div class="lg:col-span-6 bg-surface-charcoal p-space-lg rounded-xl shadow-lg relative overflow-hidden">
+<div class="absolute -right-10 -bottom-10 w-44 h-44 rounded-full bg-primary-container/5 blur-2xl pointer-events-none"></div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest block mb-3">The idea behind the work</span>
+<h3 class="font-headline-md text-headline-md text-text-primary mb-space-sm">Creative thinking, cinematic execution.</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            I use AI tools as a production engine — not as the idea itself. The goal is clear concepts, polished visuals, strong product presentation, and a finished commercial that feels intentional and distinctly premium.
+          </p>
+</div>
+<!-- Inline Visual Tech Spec Diagram -->
+<div class="lg:col-span-6 bg-surface-container p-space-lg rounded-xl flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-sm text-label-sm text-outline uppercase">Neural Visual Pipeline Precision</span>
+<span class="font-label-sm text-label-sm text-tertiary-fixed">Active Director Mode</span>
+</div>
+<!-- Mini SVG Data Flow Diagram -->
+<div class="w-full h-24 mb-space-sm flex items-center">
+<svg class="w-full h-full text-primary" fill="none" viewbox="0 0 400 60">
+<path class="opacity-40" d="M10 30 H 90 Q 105 30 115 15 T 140 15 H 220 Q 235 15 245 45 T 270 45 H 390" stroke="currentColor" stroke-dasharray="4 4" stroke-width="2"></path>
+<circle cx="10" cy="30" fill="currentColor" r="4"></circle>
+<circle class="text-primary-container" cx="127" cy="15" fill="currentColor" r="5"></circle>
+<circle class="text-secondary" cx="257" cy="45" fill="currentColor" r="5"></circle>
+<circle cx="390" cy="45" fill="currentColor" r="4"></circle>
+<text class="text-[9px] font-mono opacity-60" fill="currentColor" x="10" y="50">CONCEPT</text>
+<text class="text-[9px] font-mono text-primary-container" fill="currentColor" x="110" y="32">PROMPT / LATENT</text>
+<text class="text-[9px] font-mono text-secondary" fill="currentColor" x="240" y="25">UPSCALE / COLOR</text>
+<text class="text-[9px] font-mono opacity-60" fill="currentColor" x="350" y="25">FINAL CUT</text>
+</svg>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Latency: High Throughput</span>
+<span>Bitrate: Apple ProRes 4444 XQ</span>
+</div>
+</div>
+</div>
+<!-- 4 Stat Metric Cards -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md">
+<div class="bg-surface-charcoal p-space-md rounded-xl hover:bg-surface-container transition-all group shadow-md">
+<span class="font-headline-hero text-headline-hero text-primary-container leading-none block mb-1 group-hover:scale-105 transition-transform origin-left">01</span>
+<span class="font-label-md text-label-md text-text-primary block uppercase">Core focus</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">AI Commercial Ads</p>
+</div>
+<div class="bg-surface-charcoal p-space-md rounded-xl hover:bg-surface-container transition-all group shadow-md">
+<span class="font-headline-hero text-headline-hero text-primary leading-none block mb-1 group-hover:scale-105 transition-transform origin-left">05</span>
+<span class="font-label-md text-label-md text-text-primary block uppercase">Featured projects</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">in this showcase</p>
+</div>
+<div class="bg-surface-charcoal p-space-md rounded-xl hover:bg-surface-container transition-all group shadow-md">
+<span class="font-headline-hero text-headline-hero text-secondary leading-none block mb-1 group-hover:scale-105 transition-transform origin-left">3D</span>
+<span class="font-label-md text-label-md text-text-primary block uppercase">Interactive presentation</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">with depth + motion</p>
+</div>
+<div class="bg-surface-charcoal p-space-md rounded-xl hover:bg-surface-container transition-all group shadow-md">
+<span class="font-headline-hero text-headline-hero text-tertiary-fixed leading-none block mb-1 group-hover:scale-105 transition-transform origin-left">100%</span>
+<span class="font-label-md text-label-md text-text-primary block uppercase">Project-led</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">creative showcase</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 02 SELECTED WORK -->
+<section class="w-full py-space-xl px-gutter-mobile md:px-margin" id="work">
+<div class="max-w-[1440px] mx-auto">
+<!-- Header with Navigation Control buttons -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-sm">
+<div>
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest block mb-2">02 — Selected Work</span>
+<h2 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">
+            Commercials made<br/>to be remembered.
+          </h2>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant mr-2">Click any project to preview playback</span>
+<button class="w-10 h-10 rounded-full bg-surface-container-high hover:bg-surface-container-highest flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">west</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container-high hover:bg-surface-container-highest flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">east</span>
+</button>
+</div>
+</div>
+<!-- Projects Grid (5 Featured Works) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md mb-space-xl">
+<!-- Card 1: Blue Lady -->
+<div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between" data-category="FRAGRANCE" data-desc="Ethereal fluid dynamics and crystalline glass reflections sculpted through latent diffusion models to create an unforgettable luxury perfume ad." data-title="Blue Lady" data-type="AI commercial / perfume">
+<div class="relative w-full aspect-video overflow-hidden bg-surface-container">
+<video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-thumb" data-video="assets/blue lady.mp4" muted loop playsinline preload="metadata"></video>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal via-transparent to-transparent opacity-80"></div>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm">
+              01 FRAGRANCE
+            </div>
+<div class="video-overlay absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
+<span class="material-symbols-outlined text-[24px]">play_arrow</span>
+</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between mb-1">
+<h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">Blue Lady</h3>
+<span class="font-label-sm text-label-sm text-tertiary-fixed">0:15 / 4K</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">AI commercial / perfume</p>
+</div>
+</div>
+<!-- Card 2: Napoleon Boss -->
+<div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between" data-category="FRAGRANCE" data-desc="Intense, masculine obsidian textures and smoky embers paired with aggressive cinematic camera rotations for executive brand positioning." data-title="Napoleon Boss" data-type="AI commercial / fragrance">
+<div class="relative w-full aspect-video overflow-hidden bg-surface-container">
+<video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-thumb" data-video="assets/napoleon.mp4" muted loop playsinline preload="metadata"></video>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal via-transparent to-transparent opacity-80"></div>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm">
+              02 FRAGRANCE
+            </div>
+<div class="video-overlay absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
+<span class="material-symbols-outlined text-[24px]">play_arrow</span>
+</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between mb-1">
+<h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">Napoleon Boss</h3>
+<span class="font-label-sm text-label-sm text-tertiary-fixed">0:20 / 4K</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">AI commercial / fragrance</p>
+</div>
+</div>
+<!-- Card 3: Growing With Care -->
+<div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between" data-category="BABY CARE" data-desc="Warm natural sunlight, macro botanicals, and tender pacing created to communicate pure organic safety and maternal reassurance." data-title="Growing With Care" data-type="AI commercial / nutrition">
+<div class="relative w-full aspect-video overflow-hidden bg-surface-container">
+<video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-thumb" data-video="assets/NI 1.mp4" muted loop playsinline preload="metadata"></video>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal via-transparent to-transparent opacity-80"></div>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm">
+              03 BABY CARE
+            </div>
+<div class="video-overlay absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[24px]">play_arrow</span>
+</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between mb-1">
+<h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">Growing With Care</h3>
+<span class="font-label-sm text-label-sm text-tertiary-fixed">0:15 / 4K</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">AI commercial / nutrition</p>
+</div>
+</div>
+<!-- Card 4: Pond's Bright Beauty -->
+<div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between" data-category="SKINCARE" data-desc="Cellular-level micro hydration renders and radiant dewy skin simulations that highlight instant brightening performance." data-title="Pond's Bright Beauty" data-type="AI commercial / skincare">
+<div class="relative w-full aspect-video overflow-hidden bg-surface-container">
+<video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-thumb" data-video="assets/ponds.mp4" muted loop playsinline preload="metadata"></video>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal via-transparent to-transparent opacity-80"></div>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm">
+              04 SKINCARE
+            </div>
+<div class="video-overlay absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
+<span class="material-symbols-outlined text-[24px]">play_arrow</span>
+</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between mb-1">
+<h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">Pond's Bright Beauty</h3>
+<span class="font-label-sm text-label-sm text-tertiary-fixed">0:30 / 4K</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">AI commercial / skincare</p>
+</div>
+</div>
+<!-- Card 5: Shangrila Umami Sauce -->
+<div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between md:col-span-2 lg:col-span-2" data-category="FOOD &amp; BEVERAGE" data-desc="Explosive wok fire, sizzling spices, and rich caramel-textured sauce pours directed to trigger immediate appetite and sensory craving." data-title="Shangrila Umami Sauce" data-type="AI commercial / food">
+<div class="relative w-full aspect-video lg:aspect-[21/9] overflow-hidden bg-surface-container">
+<video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-thumb" data-video="assets/umami sauce.mp4" muted loop playsinline preload="metadata"></video>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal via-transparent to-transparent opacity-80"></div>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm">
+              05 FOOD &amp; BEVERAGE
+            </div>
+<div class="video-overlay absolute inset-0 flex items-center justify-center bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="w-14 h-14 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
+<span class="material-symbols-outlined text-[28px]">play_arrow</span>
+</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">Shangrila Umami Sauce</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">AI commercial / food</p>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary-fixed self-start sm:self-auto">0:15 / 4K HIGHLIGHT</span>
+</div>
+</div>
+</div>
+<!-- Creative Philosophy Pillars Banner -->
+<div class="p-space-lg bg-surface-container rounded-xl shadow-lg">
+<div class="max-w-2xl mb-space-md">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest block mb-1">Creative approach</span>
+<h3 class="font-headline-md text-headline-md text-text-primary mb-2">Not just pretty frames.</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Each commercial is shaped around product visibility, visual hierarchy, pacing, and a clear reason for the viewer to keep watching.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div class="bg-surface-charcoal p-space-md rounded-lg shadow-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary mb-3">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-text-primary mb-1">Hook</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Grab attention early with dynamic camera staging and unexpected visual anchors.</p>
+</div>
+<div class="bg-surface-charcoal p-space-md rounded-lg shadow-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary mb-3">
+<span class="material-symbols-outlined text-[18px]">center_focus_strong</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-text-primary mb-1">Product</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Keep the hero readable. Flawless branding, micro-details, and authentic lighting.</p>
+</div>
+<div class="bg-surface-charcoal p-space-md rounded-lg shadow-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary mb-3">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-text-primary mb-1">Payoff</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">End with a memorable visual payoff and lingering brand equity that drives action.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 03 SERVICES SECTION -->
+<section class="w-full py-space-xl px-gutter-mobile md:px-margin bg-surface-container-low/40" id="services">
+<div class="max-w-[1440px] mx-auto">
+<div class="max-w-2xl mb-space-xl">
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest block mb-2">03 — Services</span>
+<h2 class="font-headline-lg text-headline-lg text-text-primary tracking-tight mb-space-xs">
+          From concept<br/>to final ad.
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          AI-powered visual production and commercial storytelling for brands, agencies, and creators seeking uncompromised aesthetic fidelity.
+        </p>
+</div>
+<!-- 4 Modular Capability Blocks -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- 01 AI Commercial Ads -->
+<div class="bg-surface-charcoal p-space-lg rounded-xl flex flex-col justify-between hover:bg-surface-container transition-all group shadow-md">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Capability 01</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary-container transition-colors">video_settings</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-space-xs">AI Commercial Ads</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Cinematic product-focused commercials with state-of-the-art AI generation, fluid camera motion, and editorial pacing.
+            </p>
+</div>
+<div class="pt-space-md mt-space-md border-t border-border-subtle flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Turnaround: 3–7 Days</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- 02 Product Visuals -->
+<div class="bg-surface-charcoal p-space-lg rounded-xl flex flex-col justify-between hover:bg-surface-container transition-all group shadow-md">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Capability 02</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary-container transition-colors">photo_camera</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-space-xs">Product Visuals</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Premium hero scenes, campaign visual stills, billboard-scale renderings, and hyper-detailed product-led frames.
+            </p>
+</div>
+<div class="pt-space-md mt-space-md border-t border-border-subtle flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Output: 8K Retouched</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- 03 Creative Direction -->
+<div class="bg-surface-charcoal p-space-lg rounded-xl flex flex-col justify-between hover:bg-surface-container transition-all group shadow-md">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Capability 03</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary-container transition-colors">psychology</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-space-xs">Creative Direction</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Narrative concepts, shot planning, storyboards, tone exploration, color theory, and bespoke visual mood direction.
+            </p>
+</div>
+<div class="pt-space-md mt-space-md border-t border-border-subtle flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Deliverable: Pitch Deck</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+<!-- 04 AI Motion & Editing -->
+<div class="bg-surface-charcoal p-space-lg rounded-xl flex flex-col justify-between hover:bg-surface-container transition-all group shadow-md">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Capability 04</span>
+<span class="material-symbols-outlined text-outline group-hover:text-primary-container transition-colors">movie_edit</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-space-xs">AI Motion &amp; Editing</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Advanced motion prompts, frame interpolation, speed ramps, sound design synchronization, and final cut refinement.
+            </p>
+</div>
+<div class="pt-space-md mt-space-md border-t border-border-subtle flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Audio: Spatial 5.1 Ready</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 04 PROCESS SECTION -->
+<section class="w-full py-space-xl px-gutter-mobile md:px-margin" id="process">
+<div class="max-w-[1440px] mx-auto">
+<div class="max-w-2xl mb-space-xl">
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest block mb-2">04 — Process</span>
+<h2 class="font-headline-lg text-headline-lg text-text-primary tracking-tight">
+          Idea to screen,<br/>without the noise.
+        </h2>
+</div>
+<!-- 4 Connected Process Stages -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-md relative">
+<!-- Step 1 -->
+<div class="bg-surface-charcoal p-space-lg rounded-xl relative shadow-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center font-label-md text-label-md text-primary mb-space-md">
+            01
+          </div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-2">Concept</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Product, audience, mood, and visual direction aligned with your core brand strategy.
+          </p>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-charcoal p-space-lg rounded-xl relative shadow-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center font-label-md text-label-md text-primary mb-space-md">
+            02
+          </div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-2">Storyboard</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Clear shots, continuity, and cinematic pacing designed frame-by-frame before synthesis.
+          </p>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-charcoal p-space-lg rounded-xl relative shadow-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center font-label-md text-label-md text-primary mb-space-md">
+            03
+          </div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-2">Generate</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            High-fidelity hero frames, camera trajectories, and photorealistic product scene renders.
+          </p>
+</div>
+<!-- Step 4 -->
+<div class="bg-surface-charcoal p-space-lg rounded-xl relative shadow-md">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center font-label-md text-label-md text-primary mb-space-md">
+            04
+          </div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-2">Edit</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Micro-timing, dynamic transitions, sound design, and master color grading for final flow.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 05 CONTACT & CONVERSION SECTION -->
+<section class="w-full py-space-xl px-gutter-mobile md:px-margin bg-surface-container-low/40" id="contact">
+<div class="max-w-[1440px] mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left: Headline & Channels -->
+<div class="lg:col-span-6 flex flex-col justify-between">
+<div>
+<span class="font-label-md text-label-md text-primary uppercase tracking-widest block mb-2">05 — Contact</span>
+<h2 class="font-headline-lg text-headline-lg text-text-primary tracking-tight mb-space-md">
+              Have a product<br/>that needs attention?
+            </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-space-lg">
+              Let's turn the idea into a cinematic commercial your audience can remember.
+            </p>
+<!-- Direct Social CTAs with Official SVG branding -->
+<div class="flex flex-col sm:flex-row gap-space-xs mb-space-lg">
+<a class="inline-flex items-center justify-between gap-3 px-space-md py-3 rounded-xl bg-surface-charcoal hover:bg-surface-container text-on-surface hover:text-[#25D366] transition-all shadow-md group" href="https://wa.me/923183167515" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center gap-2.5">
+<svg class="w-5 h-5 fill-[#25D366]" viewbox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"></path></svg>
+<span class="font-label-sm text-label-sm uppercase">WhatsApp ↗</span>
+</div>
+</a>
+<a class="inline-flex items-center justify-between gap-3 px-space-md py-3 rounded-xl bg-surface-charcoal hover:bg-surface-container text-on-surface hover:text-[#E4405F] transition-all shadow-md group" href="https://instagram.com/abdul_hannan27" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center gap-2.5">
+<svg class="w-5 h-5 fill-[#E4405F]" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+<span class="font-label-sm text-label-sm uppercase">Instagram ↗</span>
+</div>
+</a>
+<a class="inline-flex items-center justify-between gap-3 px-space-md py-3 rounded-xl bg-surface-charcoal hover:bg-surface-container text-on-surface hover:text-[#FF0000] transition-all shadow-md group" href="https://www.youtube.com/@ahqsworld" rel="noopener noreferrer" target="_blank">
+<div class="flex items-center gap-2.5">
+<svg class="w-5 h-5 fill-[#FF0000]" viewbox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+<span class="font-label-sm text-label-sm uppercase">YouTube ↗</span>
+</div>
+</a>
+</div>
+</div>
+<!-- Metadata Pill Badges -->
+<div class="space-y-2">
+<div class="p-space-sm rounded-lg bg-surface-charcoal flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Specialty</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">AI Commercial Ads</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-charcoal flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Style</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Cinematic · Product-led · Social-ready</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-charcoal flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Availability</span>
+<div class="flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-fixed-dim opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary-fixed"></span>
+</span>
+<span class="font-body-sm text-body-sm text-tertiary-fixed font-medium">Available for selected projects</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Inquiry Form -->
+<div class="lg:col-span-6 bg-surface-charcoal p-space-lg rounded-xl shadow-xl flex flex-col justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary mb-1">Start a Production Inquiry</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">Share your product details for concept review and production estimates.</p>
+<form class="space-y-space-sm" id="inquiry-form">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<div>
+<label class="block font-label-sm text-label-sm text-outline uppercase mb-1">Your Name / Title</label>
+<input class="w-full h-11 px-3 rounded-lg bg-surface-container text-on-surface placeholder:text-outline-variant focus:outline-none focus:ring-1 focus:ring-primary-container text-body-sm" placeholder="e.g. Elena Vance, Creative Lead" required="" type="text"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-outline uppercase mb-1">Brand or Product</label>
+<input class="w-full h-11 px-3 rounded-lg bg-surface-container text-on-surface placeholder:text-outline-variant focus:outline-none focus:ring-1 focus:ring-primary-container text-body-sm" placeholder="e.g. Lumin Fragrance No. 4" required="" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<div>
+<label class="block font-label-sm text-label-sm text-outline uppercase mb-1">Estimated Budget</label>
+<select class="w-full h-11 px-3 rounded-lg bg-surface-container text-on-surface focus:outline-none focus:ring-1 focus:ring-primary-container text-body-sm">
+<option class="bg-surface-charcoal">$3,000 – $6,000 (Hero Ad)</option>
+<option class="bg-surface-charcoal">$6,000 – $15,000 (Campaign Suite)</option>
+<option class="bg-surface-charcoal">$15,000+ (Enterprise Direction)</option>
+</select>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-outline uppercase mb-1">Delivery Target</label>
+<select class="w-full h-11 px-3 rounded-lg bg-surface-container text-on-surface focus:outline-none focus:ring-1 focus:ring-primary-container text-body-sm">
+<option class="bg-surface-charcoal">Under 2 Weeks</option>
+<option class="bg-surface-charcoal">Within 1 Month</option>
+<option class="bg-surface-charcoal">Flexible Schedule</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-outline uppercase mb-1">Project Brief &amp; Vision</label>
+<textarea class="w-full p-3 rounded-lg bg-surface-container text-on-surface placeholder:text-outline-variant focus:outline-none focus:ring-1 focus:ring-primary-container text-body-sm resize-none" placeholder="Describe your product, target audience, and desired emotional payoff..." rows="3"></textarea>
+</div>
+<button class="w-full h-12 rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase tracking-wider hover:shadow-[0_0_24px_rgba(0,240,255,0.45)] transition-all flex items-center justify-center gap-2 cursor-pointer" type="submit">
+<span>Send Commercial Inquiry</span>
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</form>
+</div>
+<div class="hidden mt-space-sm p-3 rounded bg-tertiary/10 text-tertiary-fixed font-body-sm text-body-sm text-center" id="form-success">
+            Inquiry dispatched directly to director Abdul Hannan. Expect reply within 24 hours.
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- INTERACTIVE MODAL (PROJECT / FILM PREVIEW) -->
+<div class="fixed inset-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl hidden flex items-center justify-center p-gutter-mobile md:p-margin" id="project-modal">
+<div class="relative w-full max-w-4xl bg-surface-charcoal rounded-2xl overflow-hidden shadow-2xl flex flex-col">
+<!-- Modal Header -->
+<div class="p-space-md flex items-center justify-between bg-surface-container">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest" id="modal-project-category">Commercial Showcase</span>
+<span class="text-outline">/</span>
+<h4 class="font-headline-sm text-headline-sm text-text-primary" id="modal-project-title">Napoleon Boss</h4>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-high hover:bg-surface-container-highest flex items-center justify-center text-on-surface transition-colors cursor-pointer" id="modal-close-btn">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Video / Scene Display Simulation -->
+<div class="relative aspect-video w-full bg-black flex items-center justify-center overflow-hidden">
+<video class="w-full h-full object-contain" id="modal-project-video" controls playsinline preload="metadata"></video>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal/90 via-transparent to-transparent"></div>
+<!-- Live Playback HUD Controls -->
+<div class="absolute bottom-0 inset-x-0 p-space-md flex flex-col gap-2">
+<!-- Timeline Bar -->
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden cursor-pointer">
+<div class="h-full bg-primary-container w-2/5 transition-all duration-300" id="modal-progress-bar"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface font-label-sm text-label-sm">
+<div class="flex items-center gap-space-sm">
+<button class="text-primary hover:text-white transition-colors cursor-pointer" id="modal-play-btn">
+<span class="material-symbols-outlined text-[22px]">pause</span>
+</button>
+<span id="modal-timecode">00:06 / 00:15</span>
+<span class="hidden sm:inline bg-surface-container-high px-2 py-0.5 rounded text-tertiary-fixed">4K ProRes RAW</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
+</button>
+<button class="hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">fullscreen</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal Footer Info -->
+<div class="p-space-md bg-surface-charcoal flex flex-col sm:flex-row justify-between items-start sm:items-center gap-space-sm">
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xl" id="modal-project-desc">
+          Ethereal fluid dynamics and crystalline glass reflections sculpted through latent diffusion models to create an unforgettable luxury perfume ad.
+        </p>
+<a class="inline-flex items-center gap-2 px-space-md py-2 rounded-full bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-sm text-label-sm uppercase tracking-wider transition-colors" href="#contact" id="modal-discuss-btn">
+<span>Discuss Similar Brief</span>
+<span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Client-side Logic Script for Micro-interactions + Real Video Playback -->
 <script>
-(()=>{
- const intro=document.getElementById('introVideo'),sound=document.getElementById('soundBtn'),play=document.getElementById('playIntro');
- sound.addEventListener('click',()=>{intro.muted=!intro.muted;sound.textContent=intro.muted?'Sound Off':'Sound On';if(!intro.muted){intro.currentTime=0;intro.play().catch(()=>{})}});
- play.addEventListener('click',()=>{intro.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>{intro.currentTime=0;intro.muted=false;sound.textContent='Sound On';intro.play().catch(()=>{})},250)});
- intro.play().catch(()=>{});
+(function(){
+  const modal = document.getElementById('project-modal');
+  const closeBtn = document.getElementById('modal-close-btn');
+  const modalDiscussBtn = document.getElementById('modal-discuss-btn');
+  const modalTitle = document.getElementById('modal-project-title');
+  const modalCategory = document.getElementById('modal-project-category');
+  const modalDesc = document.getElementById('modal-project-desc');
+  const modalVideo = document.getElementById('modal-project-video');
+  const projectCards = document.querySelectorAll('.project-card');
+  const introBtn = document.getElementById('intro-modal-btn');
+  const introVideo = document.getElementById('intro-video');
+  const introSoundBtn = document.getElementById('intro-sound-btn');
+  const introSoundIcon = document.getElementById('intro-sound-icon');
+  const introSoundLabel = document.getElementById('intro-sound-label');
+  const soundBtn = document.getElementById('sound-toggle-btn');
+  const soundIcon = document.getElementById('sound-icon');
+  const soundLabel = document.getElementById('sound-label');
+  const form = document.getElementById('inquiry-form');
+  const formSuccess = document.getElementById('form-success');
 
- const reveals=[...document.querySelectorAll('.reveal')];
- const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
- reveals.forEach(el=>io.observe(el));
+  const videoMap = {
+    'Blue Lady':'assets/blue lady.mp4',
+    'Napoleon Boss':'assets/napoleon.mp4',
+    'Growing With Care':'assets/NI 1.mp4',
+    "Pond's Bright Beauty":'assets/ponds.mp4',
+    'Shangrila Umami Sauce':'assets/umami sauce.mp4'
+  };
 
- const cards=[...document.querySelectorAll('.project-card')],modal=document.getElementById('modal'),mv=document.getElementById('modalVideo');
- const mt=document.getElementById('modalTitle'),mc=document.getElementById('modalCat'),md=document.getElementById('modalDesc'),tags=document.getElementById('modalTags');
- cards.forEach(card=>card.addEventListener('click',()=>{
-   mt.textContent=card.dataset.title;mc.textContent=card.dataset.category;md.textContent=card.dataset.desc;
-   tags.innerHTML=(card.dataset.type||'AI commercial').split(' · ').map(t=>'<span>'+t+'</span>').join('');
-   mv.src=card.dataset.video;mv.load();modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
-   mv.play().catch(()=>{});
- }));
- const shut=()=>{mv.pause();mv.removeAttribute('src');mv.load();modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow=''};
- document.getElementById('close').addEventListener('click',shut);
- modal.addEventListener('click',e=>{if(e.target===modal)shut()});
- document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))shut()});
+  function setIntroSound(){
+    if (!introVideo) return;
+    const on = !introVideo.muted;
+    if (introSoundIcon) introSoundIcon.textContent = on ? 'volume_up' : 'volume_off';
+    if (introSoundLabel) introSoundLabel.textContent = on ? 'Sound On' : 'Sound Off';
+  }
+  function playVideo(v){ if(v) v.play().catch(()=>{}); }
 
- const thumbs=[...document.querySelectorAll('.project-media video')];
- const lazy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.play().catch(()=>{});lazy.unobserve(e.target)}}),{rootMargin:'180px 0px',threshold:.01});
- thumbs.forEach(v=>lazy.observe(v));
+  introVideo?.addEventListener('loadeddata',()=>playVideo(introVideo));
+  introVideo?.addEventListener('play',setIntroSound);
+  introSoundBtn?.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    introVideo.muted = !introVideo.muted;
+    if(!introVideo.muted){introVideo.currentTime=0;playVideo(introVideo);}
+    setIntroSound();
+  });
+  setIntroSound();
+
+  function openModal(title, category, desc, videoSrc){
+    modalTitle.textContent = title;
+    modalCategory.textContent = category;
+    modalDesc.textContent = desc;
+    modalVideo.src = videoSrc || videoMap[title] || '';
+    modal.classList.remove('hidden');
+    document.body.style.overflow='hidden';
+    modalVideo.load();
+    modalVideo.addEventListener('loadeddata',()=>playVideo(modalVideo),{once:true});
+  }
+  function closeModal(){
+    modalVideo.pause();
+    modalVideo.removeAttribute('src');
+    modalVideo.load();
+    modal.classList.add('hidden');
+    document.body.style.overflow='';
+  }
+
+  projectCards.forEach(card=>{
+    card.addEventListener('click',()=>{
+      const title=card.getAttribute('data-title')||'Featured Project';
+      const cat=card.getAttribute('data-category')||'COMMERCIAL';
+      const desc=card.getAttribute('data-desc')||'Cinematic product-led AI direction.';
+      const src=card.getAttribute('data-video')||videoMap[title];
+      openModal(title,cat,desc,src);
+    });
+  });
+
+  introBtn?.addEventListener('click',()=>{
+    if(introVideo){
+      modalVideo.src='assets/intro.mp4';
+      modalTitle.textContent='Portfolio Intro Film (10s)';
+      modalCategory.textContent='DIRECTOR REEL';
+      modalDesc.textContent='A high-impact 10-second visual summary of cinematic AI commercial direction, product-focused storytelling and motion.';
+      modal.classList.remove('hidden');
+      document.body.style.overflow='hidden';
+      modalVideo.load();
+      modalVideo.addEventListener('loadeddata',()=>playVideo(modalVideo),{once:true});
+    }
+  });
+  closeBtn?.addEventListener('click',closeModal);
+  modalDiscussBtn?.addEventListener('click',closeModal);
+  modal?.addEventListener('click',(e)=>{if(e.target===modal)closeModal();});
+  window.addEventListener('keydown',(e)=>{if(e.key==='Escape'&&!modal.classList.contains('hidden'))closeModal();});
+
+  soundBtn?.addEventListener('click',()=>{
+    const on = soundBtn.classList.toggle('text-primary-container');
+    if(soundIcon) soundIcon.textContent=on?'volume_up':'volume_off';
+    if(soundLabel) soundLabel.textContent=on?'Spatial Audio Active':'Sound Off';
+  });
+
+  // Inquiry form: send the filled brief to WhatsApp rather than pretending it is a backend.
+  form?.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    const fields=[...form.querySelectorAll('input,select,textarea')];
+    const values=fields.map(x=>x.value.trim()).filter(Boolean);
+    const message='Portfolio Inquiry%0A%0A'+encodeURIComponent(values.join('\n'));
+    window.open('https://wa.me/923183167515?text='+message,'_blank','noopener');
+    if(formSuccess) formSuccess.classList.remove('hidden');
+  });
+
+  // Load project videos only as they enter the viewport for smoother mobile/LED performance.
+  const thumbs=[...document.querySelectorAll('.project-thumb')];
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(entries=>entries.forEach(entry=>{
+      if(!entry.isIntersecting)return;
+      const v=entry.target;
+      if(!v.src){v.src=v.getAttribute('data-video');v.load();}
+      playVideo(v);
+      io.unobserve(v);
+    }),{rootMargin:'250px 0px',threshold:.01});
+    thumbs.forEach(v=>io.observe(v));
+  }else{
+    thumbs.forEach(v=>{v.src=v.getAttribute('data-video');v.load();});
+  }
+
+  // Repeatable reveal behavior while scrolling both down and up.
+  const reveals=[...document.querySelectorAll('[class*="transition-all"], [class*="animate-"]')];
+  projectCards.forEach(card=>{
+    card.addEventListener('pointerenter',()=>{const v=card.querySelector('.project-thumb');if(v)playVideo(v);});
+    card.addEventListener('pointerleave',()=>{const v=card.querySelector('.project-thumb');if(v)v.pause();});
+  });
 })();
 </script>
-</body>
-</html>
+</div></main><footer class="w-full bg-surface-container-lowest relative z-10 pt-space-xl pb-space-lg"><div class="max-w-[1440px] mx-auto px-gutter-mobile md:px-margin"><div class="grid grid-cols-1 md:grid-cols-12 gap-space-lg pb-space-xl"><div class="md:col-span-6 flex flex-col justify-between gap-space-md"><div class="flex items-center gap-space-xs"><div class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center"><span class="font-label-lg text-label-lg text-primary uppercase">AH</span></div><span class="font-headline-sm text-headline-sm text-on-surface uppercase tracking-tight">Abdul Hannan</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-md">Next-generation cinematic AI commercial direction. Merging high-fidelity generative visual pipelines with luxury commercial aesthetics for enterprise brands worldwide.</p><div class="inline-flex items-center gap-2 self-start px-space-sm py-1.5 rounded-full bg-surface-container-high"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-fixed-dim opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary-fixed"></span></span><span class="font-label-sm text-label-sm text-tertiary-fixed uppercase tracking-widest">Available for selected projects</span></div></div><div class="md:col-span-3 flex flex-col gap-space-sm"><span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Navigation</span><nav class="flex flex-col gap-space-xs" data-active-classes="text-primary font-semibold"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="work" href="#work">Selected Reels</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="services" href="#services">Production Capabilities</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="process" href="#process">Generative Pipeline</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#about">Director Profile</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#contact">Inquiries &amp; Press</a></nav></div><div class="md:col-span-3 flex flex-col gap-space-sm"><span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Transmission</span><div class="flex flex-col gap-space-xs"><a class="inline-flex items-center justify-between py-1 text-on-surface-variant hover:text-on-surface transition-colors" href="https://instagram.com/abdul_hannan27" target="_blank" rel="noopener noreferrer"><span class="font-body-sm text-body-sm">Instagram / Reels</span><span class="material-symbols-outlined text-[16px]">north_east</span></a><a class="inline-flex items-center justify-between py-1 text-on-surface-variant hover:text-on-surface transition-colors" href="https://wa.me/923183167515" target="_blank" rel="noopener noreferrer"><span class="font-body-sm text-body-sm">WhatsApp Direct</span><span class="material-symbols-outlined text-[16px]">north_east</span></a><a class="inline-flex items-center justify-between py-1 text-on-surface-variant hover:text-on-surface transition-colors" href="https://www.youtube.com/@ahqsworld" target="_blank" rel="noopener noreferrer"><span class="font-body-sm text-body-sm">YouTube Cinema</span><span class="material-symbols-outlined text-[16px]">north_east</span></a></div></div></div><div class="pt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-sm"><span class="font-body-sm text-body-sm text-on-surface-variant">© 2025 Abdul Hannan. All rights reserved. Powered by Neural Cinema Engines.</span><div class="flex items-center gap-space-md"><span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">4K / 60FPS High-Bitrate Master</span><span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Confidentiality Guaranteed</span></div></div></div></footer></body></html>
