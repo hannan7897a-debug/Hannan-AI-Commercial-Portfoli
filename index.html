@@ -673,22 +673,22 @@ html{scroll-behavior:smooth}
 <!-- Live Playback HUD Controls -->
 <div class="absolute bottom-0 inset-x-0 z-20 p-space-md flex flex-col gap-2" id="modal-custom-hud">
 <!-- Timeline Bar -->
-<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden cursor-pointer">
-<div class="h-full bg-primary-container w-2/5 transition-all duration-300" id="modal-progress-bar"></div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden cursor-pointer" id="modal-seekbar">
+<div class="h-full bg-primary-container w-0 transition-all duration-300" id="modal-progress-bar"></div>
 </div>
 <div class="flex items-center justify-between text-on-surface font-label-sm text-label-sm">
 <div class="flex items-center gap-space-sm">
-<button class="text-primary hover:text-white transition-colors cursor-pointer" id="modal-play-btn">
-<span class="material-symbols-outlined text-[22px]">pause</span>
+<button class="text-primary hover:text-white transition-colors cursor-pointer" id="modal-play-btn" type="button" aria-label="Play or pause">
+<span class="material-symbols-outlined text-[22px]">play_arrow</span>
 </button>
 <span id="modal-timecode">00:06 / 00:15</span>
 <span class="hidden sm:inline bg-surface-container-high px-2 py-0.5 rounded text-tertiary-fixed">4K ProRes RAW</span>
 </div>
 <div class="flex items-center gap-space-xs">
-<button class="hover:text-primary transition-colors cursor-pointer">
+<button class="hover:text-primary transition-colors cursor-pointer" id="modal-volume-btn" type="button" aria-label="Toggle sound">
 <span class="material-symbols-outlined text-[18px]">volume_up</span>
 </button>
-<button class="hover:text-primary transition-colors cursor-pointer">
+<button class="hover:text-primary transition-colors cursor-pointer" id="modal-fullscreen-btn" type="button" aria-label="Fullscreen">
 <span class="material-symbols-outlined text-[18px]">fullscreen</span>
 </button>
 </div>
@@ -738,6 +738,12 @@ html{scroll-behavior:smooth}
   const modalCategory=document.getElementById('modal-project-category');
   const modalDesc=document.getElementById('modal-project-desc');
   const modalVideo=document.getElementById('modal-project-video');
+  const modalPlay=document.getElementById('modal-play-btn');
+  const modalSeek=document.getElementById('modal-seekbar');
+  const modalProgress=document.getElementById('modal-progress-bar');
+  const modalTimecode=document.getElementById('modal-timecode');
+  const modalVolume=document.getElementById('modal-volume-btn');
+  const modalFullscreen=document.getElementById('modal-fullscreen-btn');
   const cards=[...document.querySelectorAll('.project-card[data-video]')];
 
   const projectMap={
@@ -775,6 +781,44 @@ html{scroll-behavior:smooth}
     modal.setAttribute('aria-hidden','true');
     document.body.style.overflow='';
   }
+  function formatTime(sec){
+    if(!Number.isFinite(sec)) return '00:00';
+    const m=Math.floor(sec/60);
+    const secPart=Math.floor(sec%60).toString().padStart(2,'0');
+    return m.toString().padStart(2,'0')+':'+secPart;
+  }
+  function updatePlaybackUI(){
+    if(!modalVideo) return;
+    if(modalPlay) modalPlay.querySelector('.material-symbols-outlined').textContent=modalVideo.paused?'play_arrow':'pause';
+    if(modalTimecode) modalTimecode.textContent=formatTime(modalVideo.currentTime)+' / '+formatTime(modalVideo.duration);
+    if(modalProgress) modalProgress.style.width=(modalVideo.duration?((modalVideo.currentTime/modalVideo.duration)*100):0)+'%';
+    if(modalVolume) modalVolume.querySelector('.material-symbols-outlined').textContent=modalVideo.muted?'volume_off':'volume_up';
+  }
+  if(modalVideo){
+    ['loadedmetadata','timeupdate','play','pause','ended','volumechange'].forEach(ev=>modalVideo.addEventListener(ev,updatePlaybackUI));
+  }
+  if(modalPlay) modalPlay.addEventListener('click',()=>{
+    if(!modalVideo) return;
+    if(modalVideo.paused) modalVideo.play().catch(()=>{});
+    else modalVideo.pause();
+  });
+  if(modalSeek) modalSeek.addEventListener('click',e=>{
+    if(!modalVideo || !Number.isFinite(modalVideo.duration) || !modalVideo.duration) return;
+    const rect=modalSeek.getBoundingClientRect();
+    const ratio=Math.max(0,Math.min(1,(e.clientX-rect.left)/rect.width));
+    modalVideo.currentTime=ratio*modalVideo.duration;
+  });
+  if(modalVolume) modalVolume.addEventListener('click',()=>{
+    if(!modalVideo) return;
+    modalVideo.muted=!modalVideo.muted;
+    if(!modalVideo.muted) modalVideo.volume=1;
+    updatePlaybackUI();
+  });
+  if(modalFullscreen) modalFullscreen.addEventListener('click',()=>{
+    const target=modalVideo;
+    if(target?.requestFullscreen) target.requestFullscreen().catch(()=>{});
+  });
+
   cards.forEach(card=>card.addEventListener('click',()=>{
     const title=card.getAttribute('data-title');
     const p=projectMap[title]||{};
