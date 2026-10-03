@@ -46,7 +46,9 @@ html{scroll-behavior:smooth}
 }
 #intro-film:hover{transform:translateY(-4px);box-shadow:0 38px 100px rgba(0,0,0,.54),0 0 35px rgba(0,240,255,.07)}
 #intro-film video{display:block}
-.reveal{opacity:1;transform:none;filter:none}.reveal.show{opacity:1;transform:none;filter:none}.scroll-fx{opacity:0!important;transform:translate3d(0,52px,0) scale(.985)!important;filter:blur(1.5px)!important;will-change:opacity,transform,filter;transition:opacity 1.2s cubic-bezier(.2,.7,.2,1),transform 1.35s cubic-bezier(.2,.7,.2,1),filter 1.1s ease!important}.scroll-fx.is-in{opacity:1!important;transform:translate3d(0,0,0) scale(1)!important;filter:none!important}
+.reveal{opacity:1;transform:none;filter:none}.reveal.show{opacity:1;transform:none;filter:none}
+.scroll-fx{opacity:0!important;transform:translate3d(0,58px,0) scale(.975)!important;filter:blur(3px)!important;will-change:opacity,transform,filter;transition:opacity 1.25s cubic-bezier(.16,.72,.2,1),transform 1.45s cubic-bezier(.16,.72,.2,1),filter 1.15s ease!important}
+.scroll-fx.is-in{opacity:1!important;transform:translate3d(0,0,0) scale(1)!important;filter:none!important}
 .transition-all,.transition-colors,.transition-transform{transition-duration:900ms!important}
 .duration-300{transition-duration:900ms!important}
 .duration-500{transition-duration:1100ms!important}
@@ -837,20 +839,32 @@ html{scroll-behavior:smooth}
 
 
 
-  // Reliable scroll reveal: animate on entry, reset on exit, replaying when scrolling up/down.
+  // Reliable scroll reveal: replay whenever an item leaves and re-enters the viewport.
   const motionItems=[...new Set(document.querySelectorAll('.reveal,.project-card'))];
   motionItems.forEach((el,idx)=>{
     el.classList.add('scroll-fx');
-    el.style.transitionDelay=(Math.min((idx%5)*90,360))+'ms';
+    el.style.transitionDelay=(Math.min((idx%4)*100,300))+'ms';
   });
-  if('IntersectionObserver' in window){
-    const motionObserver=new IntersectionObserver(entries=>{
-      entries.forEach(entry=>entry.target.classList.toggle('is-in',entry.isIntersecting));
-    },{threshold:0.14,rootMargin:'0px 0px -8% 0px'});
-    motionItems.forEach(el=>motionObserver.observe(el));
-  }else{
-    motionItems.forEach(el=>el.classList.add('is-in'));
+
+  let motionRaf=0;
+  function refreshMotion(){
+    motionRaf=0;
+    const vh=window.innerHeight||document.documentElement.clientHeight;
+    const topLimit=vh*0.90;
+    const bottomLimit=vh*0.10;
+    motionItems.forEach(el=>{
+      const rect=el.getBoundingClientRect();
+      const inView=rect.top < topLimit && rect.bottom > bottomLimit;
+      el.classList.toggle('is-in',inView);
+    });
   }
+  function scheduleMotion(){
+    if(!motionRaf) motionRaf=requestAnimationFrame(refreshMotion);
+  }
+  window.addEventListener('scroll',scheduleMotion,{passive:true});
+  window.addEventListener('resize',scheduleMotion);
+  window.setTimeout(refreshMotion,120);
+  refreshMotion();
 
   // Project previews: lazy-load, autoplay muted, pause when off-screen.
   const previews=[...document.querySelectorAll('.project-preview')];
