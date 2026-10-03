@@ -661,7 +661,7 @@ html{scroll-behavior:smooth}
 <span class="text-outline">/</span>
 <h4 class="font-headline-sm text-headline-sm text-text-primary" id="modal-project-title">Napoleon Boss</h4>
 </div>
-<button class="w-8 h-8 rounded-full bg-surface-container-high hover:bg-surface-container-highest flex items-center justify-center text-on-surface transition-colors cursor-pointer" id="modal-close-btn">
+<button class="w-8 h-8 rounded-full bg-surface-container-high hover:bg-surface-container-highest flex items-center justify-center text-on-surface transition-colors cursor-pointer" id="modal-close-btn" data-modal-close="true" type="button" aria-label="Close project preview">
 <span class="material-symbols-outlined text-[18px]">close</span>
 </button>
 </div>
@@ -831,30 +831,31 @@ html{scroll-behavior:smooth}
     const p=projectMap[title]||{};
     openModal(title,p.category||card.getAttribute('data-category'),p.desc||card.getAttribute('data-desc'),p.video||card.getAttribute('data-video'));
   }));
-  if(introBtn) introBtn.addEventListener('click',()=>{});
-  if(closeBtn) closeBtn.addEventListener('click',closeModal);
+  if(closeBtn) closeBtn.addEventListener('click',(event)=>{ event.preventDefault(); event.stopPropagation(); closeModal(); });
   if(discussBtn) discussBtn.addEventListener('click',closeModal);
-  if(modal) modal.addEventListener('click',e=>{if(e.target===modal) closeModal();});
+  if(modal) modal.addEventListener('click',e=>{
+    if(e.target===modal || e.target.closest('[data-modal-close="true"]')) closeModal();
+  });
   window.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal&&!modal.classList.contains('hidden')) closeModal();});
 
 
 
-  // Reliable scroll reveal: replay whenever an item leaves and re-enters the viewport.
+  // Scroll reveal: replay smoothly every time an item leaves and re-enters the viewport.
   const motionItems=[...new Set(document.querySelectorAll('.reveal,.project-card'))];
   motionItems.forEach((el,idx)=>{
     el.classList.add('scroll-fx');
-    el.style.transitionDelay=(Math.min((idx%4)*100,300))+'ms';
+    el.style.transitionDelay=(Math.min((idx%3)*120,240))+'ms';
   });
 
   let motionRaf=0;
   function refreshMotion(){
     motionRaf=0;
     const vh=window.innerHeight||document.documentElement.clientHeight;
-    const topLimit=vh*0.90;
-    const bottomLimit=vh*0.10;
+    const enterTop=vh*0.88;
+    const leaveBottom=vh*0.04;
     motionItems.forEach(el=>{
       const rect=el.getBoundingClientRect();
-      const inView=rect.top < topLimit && rect.bottom > bottomLimit;
+      const inView=rect.top < enterTop && rect.bottom > leaveBottom;
       el.classList.toggle('is-in',inView);
     });
   }
@@ -863,7 +864,9 @@ html{scroll-behavior:smooth}
   }
   window.addEventListener('scroll',scheduleMotion,{passive:true});
   window.addEventListener('resize',scheduleMotion);
-  window.setTimeout(refreshMotion,120);
+  window.addEventListener('pageshow',scheduleMotion);
+  window.setTimeout(scheduleMotion,80);
+  window.setTimeout(scheduleMotion,500);
   refreshMotion();
 
   // Project previews: lazy-load, autoplay muted, pause when off-screen.
