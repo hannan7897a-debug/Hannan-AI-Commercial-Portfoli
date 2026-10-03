@@ -397,7 +397,7 @@ html{scroll-behavior:smooth}
 <!-- Card 6: Nike -->
 <div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between" data-category="SPORTSWEAR" data-desc="A fast, cinematic Nike sportswear commercial built around movement, urban energy and product-led footwear framing." data-title="Nike — Move With Purpose" data-video="https://drive.google.com/uc?export=download&amp;id=1xwXOZkYXlMgrBj8TcKF7O-lSiZM2EGPn" data-type="AI commercial / sportswear">
 <div class="relative w-full aspect-video overflow-hidden bg-surface-container">
-<video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-preview" data-video="https://drive.google.com/uc?export=download&amp;id=1xwXOZkYXlMgrBj8TcKF7O-lSiZM2EGPn" muted loop playsinline preload="metadata"></video>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-preview-image" src="https://drive.google.com/thumbnail?id=1xwXOZkYXlMgrBj8TcKF7O-lSiZM2EGPn&sz=w1000" alt="Nike — Move With Purpose campaign frame" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')"><div class="hidden absolute inset-0 bg-surface-container flex items-center justify-center"><div class="text-center"><span class="material-symbols-outlined text-4xl text-primary">sports</span><p class="mt-2 font-label-sm text-label-sm text-on-surface-variant uppercase">Nike Commercial</p></div></div>
 <div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal via-transparent to-transparent opacity-80"></div>
 <div class="absolute top-3 left-3 flex items-center gap-2 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm"><span>06 SPORTSWEAR</span><span class="text-tertiary-fixed">NEW</span></div>
 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform"><span class="material-symbols-outlined text-[24px]">play_arrow</span></span></div>
@@ -407,7 +407,7 @@ html{scroll-behavior:smooth}
 <!-- Card 7: Pink Divinity -->
 <div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between" data-category="FRAGRANCE" data-desc="A soft, feminine fragrance commercial for Pink Divinity, using Parisian atmosphere, roses, polished glass and warm pink light." data-title="Pink Divinity" data-video="https://drive.google.com/uc?export=download&amp;id=1PT-xTd5t5zsRpPAa_e8DFYM2JkNBz4Ag" data-type="AI commercial / perfume">
 <div class="relative w-full aspect-video overflow-hidden bg-surface-container">
-<video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-preview" data-video="https://drive.google.com/uc?export=download&amp;id=1PT-xTd5t5zsRpPAa_e8DFYM2JkNBz4Ag" muted loop playsinline preload="metadata"></video>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-preview-image" src="https://drive.google.com/thumbnail?id=1PT-xTd5t5zsRpPAa_e8DFYM2JkNBz4Ag&sz=w1000" alt="Pink Divinity perfume campaign frame" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.classList.remove('hidden')"><div class="hidden absolute inset-0 bg-surface-container flex items-center justify-center"><div class="text-center"><span class="material-symbols-outlined text-4xl text-primary">local_florist</span><p class="mt-2 font-label-sm text-label-sm text-on-surface-variant uppercase">Pink Divinity</p></div></div>
 <div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal via-transparent to-black opacity-80"></div>
 <div class="absolute top-3 left-3 flex items-center gap-2 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm"><span>07 FRAGRANCE</span><span class="text-tertiary-fixed">NEW</span></div>
 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform"><span class="material-symbols-outlined text-[24px]">play_arrow</span></span></div>
@@ -669,9 +669,10 @@ html{scroll-behavior:smooth}
 <!-- Video / Scene Display Simulation -->
 <div class="relative aspect-video w-full bg-black flex items-center justify-center overflow-hidden">
 <video class="w-full h-full object-cover" id="modal-project-video" controls playsinline preload="metadata"></video>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal/90 via-transparent to-transparent"></div>
+<iframe class="w-full h-full hidden relative z-10" id="modal-drive-frame" title="Project video preview" allow="autoplay; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<div class="absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-surface-charcoal/90 via-transparent to-transparent"></div>
 <!-- Live Playback HUD Controls -->
-<div class="absolute bottom-0 inset-x-0 p-space-md flex flex-col gap-2">
+<div class="absolute bottom-0 inset-x-0 z-20 p-space-md flex flex-col gap-2" id="modal-custom-hud">
 <!-- Timeline Bar -->
 <div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden cursor-pointer">
 <div class="h-full bg-primary-container w-2/5 transition-all duration-300" id="modal-progress-bar"></div>
@@ -755,7 +756,20 @@ html{scroll-behavior:smooth}
     modalTitle.textContent=title||'Featured Project';
     modalCategory.textContent=category||'COMMERCIAL';
     modalDesc.textContent=desc||'Cinematic product-led AI direction.';
-    if(modalVideo){ modalVideo.src=video||''; modalVideo.load(); }
+    const driveFrame=document.getElementById('modal-drive-frame');
+    const customHud=document.getElementById('modal-custom-hud');
+    const driveMatch=(video||'').match(/(?:id=|\/file\/d\/)([A-Za-z0-9_-]{10,})/);
+    if(modalVideo){
+      modalVideo.classList.toggle('hidden',!!driveMatch);
+      if(driveMatch){ modalVideo.pause(); modalVideo.removeAttribute('src'); modalVideo.load(); }
+      else { modalVideo.src=video||''; modalVideo.load(); }
+    }
+    if(driveFrame){
+      driveFrame.classList.toggle('hidden',!driveMatch);
+      if(driveMatch) driveFrame.src='https://drive.google.com/file/d/'+driveMatch[1]+'/preview';
+      else driveFrame.removeAttribute('src');
+    }
+    if(customHud) customHud.classList.toggle('drive-hidden',!!driveMatch);
     modal.classList.remove('hidden');
     modal.setAttribute('aria-hidden','false');
     document.body.style.overflow='hidden';
@@ -763,7 +777,11 @@ html{scroll-behavior:smooth}
   }
   function closeModal(){
     if(!modal) return;
-    if(modalVideo){modalVideo.pause();modalVideo.removeAttribute('src');modalVideo.load();}
+    if(modalVideo){modalVideo.pause();modalVideo.removeAttribute('src');modalVideo.load();modalVideo.classList.remove('hidden');}
+    const driveFrame=document.getElementById('modal-drive-frame');
+    const customHud=document.getElementById('modal-custom-hud');
+    if(driveFrame){driveFrame.removeAttribute('src');driveFrame.classList.add('hidden');}
+    if(customHud) customHud.classList.remove('drive-hidden');
     modal.classList.add('hidden');
     modal.setAttribute('aria-hidden','true');
     document.body.style.overflow='';
