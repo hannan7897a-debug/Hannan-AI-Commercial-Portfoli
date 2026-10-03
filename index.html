@@ -106,7 +106,7 @@ html{scroll-behavior:smooth}
 <div class="max-w-[1440px] mx-auto flex flex-col items-center">
 <!-- Intro Film: the hero visual -->
 <div id="intro-film" class="relative w-full aspect-video md:aspect-[16/8.8] max-h-[720px] min-h-[260px] rounded-xl overflow-hidden bg-surface-charcoal shadow-2xl flex items-center justify-center mb-space-lg border border-white/10">
-  <video id="introVideo" class="absolute inset-0 w-full h-full object-cover" src="assets/intro.mp4" autoplay muted loop playsinline controls preload="auto"></video>
+  <video id="introVideo" class="absolute inset-0 w-full h-full object-cover" src="assets/intro.mp4" autoplay muted loop playsinline preload="auto"></video>
   <div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-black/25 via-transparent to-black/70"></div>
   <div class="absolute top-3 left-3 right-3 z-20 flex items-center justify-between gap-2 pointer-events-none">
     <div class="px-2.5 py-1.5 rounded-full bg-black/55 backdrop-blur-md border border-white/10 font-label-sm text-label-sm text-primary uppercase tracking-wider">
@@ -116,31 +116,28 @@ html{scroll-behavior:smooth}
       10s · 16:9
     </div>
   </div>
-  <div class="absolute bottom-3 left-3 right-3 z-20 flex items-center justify-between gap-2 pointer-events-none">
-    <div class="px-2.5 py-1.5 rounded-lg bg-black/55 backdrop-blur-md border border-white/10 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+  <div class="absolute bottom-3 left-3 right-3 z-20 flex items-center justify-between gap-3 pointer-events-none">
+    <div class="px-2.5 py-1.5 rounded-lg bg-black/45 backdrop-blur-md border border-white/10 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
       Abdul Hannan / AI Commercial Ad Creator
     </div>
-    <button id="sound-toggle-btn" type="button" class="pointer-events-auto px-2.5 py-1.5 rounded-lg bg-black/65 backdrop-blur-md border border-white/10 hover:border-primary-container/50 font-label-sm text-label-sm text-on-surface flex items-center gap-1.5">
-      <span class="material-symbols-outlined text-[15px]" id="sound-icon">volume_off</span><span id="sound-label">Sound Off</span>
-    </button>
+    <div class="pointer-events-auto flex items-center gap-2">
+      <button id="intro-pause-btn" type="button" aria-label="Pause intro" class="w-9 h-9 rounded-full bg-black/65 backdrop-blur-md border border-white/10 hover:border-primary-container/60 text-on-surface hover:text-primary flex items-center justify-center transition-all">
+        <span class="material-symbols-outlined text-[17px]" id="intro-pause-icon">pause</span>
+      </button>
+      <button id="sound-toggle-btn" type="button" aria-label="Toggle sound" class="w-9 h-9 rounded-full bg-black/65 backdrop-blur-md border border-white/10 hover:border-primary-container/60 text-on-surface hover:text-primary flex items-center justify-center transition-all">
+        <span class="material-symbols-outlined text-[17px]" id="sound-icon">volume_off</span>
+      </button>
+    </div>
   </div>
 </div>
 
 
-<!-- Top Badges Row -->
-<div class="flex flex-wrap items-center justify-center gap-space-xs mb-space-md text-center">
+<!-- Top Badge -->
+<div class="flex items-center justify-center mb-space-md text-center">
 <span class="inline-flex items-center gap-2 px-space-sm py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm uppercase tracking-widest shadow-sm">
 <span class="material-symbols-outlined text-[14px]">movie_filter</span>
           AI COMMERCIAL ADS / CREATIVE STUDIO
         </span>
-<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
-<span class="text-primary-container font-semibold">01</span>
-<span>/ Portfolio Intro Film (10s · Cinematic)</span>
-<button class="ml-1 inline-flex items-center gap-1 text-primary hover:text-white transition-colors cursor-pointer" id="intro-modal-btn">
-<span class="material-symbols-outlined text-[14px]">play_circle</span>
-<span>Play Intro</span>
-</button>
-</div>
 </div>
 <!-- Main Hero Heading & Statement -->
 <div class="max-w-4xl text-center space-y-space-sm mb-space-lg">
@@ -717,19 +714,27 @@ html{scroll-behavior:smooth}
   const soundBtn = document.getElementById('sound-toggle-btn');
   const soundIcon = document.getElementById('sound-icon');
   const soundLabel = document.getElementById('sound-label');
-  const introBtn = document.getElementById('intro-modal-btn');
+  const introPauseBtn = document.getElementById('intro-pause-btn');
+  const introPauseIcon = document.getElementById('intro-pause-icon');
 
   function updateSoundUI(){
-    if(!intro || !soundIcon || !soundLabel) return;
-    const on=!intro.muted;
-    soundIcon.textContent=on?'volume_up':'volume_off';
-    soundLabel.textContent=on?'Sound On':'Sound Off';
+    if(!intro || !soundIcon) return;
+    soundIcon.textContent=intro.muted?'volume_off':'volume_up';
+  }
+  function updateIntroPauseUI(){
+    if(!intro || !introPauseIcon) return;
+    introPauseIcon.textContent=intro.paused?'play_arrow':'pause';
+    if(introPauseBtn) introPauseBtn.setAttribute('aria-label',intro.paused?'Play intro':'Pause intro');
   }
   function playIntro(){ if(intro) intro.play().catch(()=>{}); }
-  window.addEventListener('load',()=>{ playIntro(); updateSoundUI(); });
-  if(intro) intro.addEventListener('loadeddata',playIntro);
-  if(soundBtn){ soundBtn.addEventListener('click',()=>{ intro.muted=!intro.muted; updateSoundUI(); if(!intro.muted){intro.currentTime=0;playIntro();} }); }
-  if(introBtn){ introBtn.addEventListener('click',(e)=>{e.preventDefault(); document.getElementById('intro-film')?.scrollIntoView({behavior:'smooth',block:'center'}); setTimeout(()=>{intro.muted=false;intro.currentTime=0;playIntro();updateSoundUI();},450); }); }
+  window.addEventListener('load',()=>{ playIntro(); updateSoundUI(); updateIntroPauseUI(); });
+  if(intro) {
+    intro.addEventListener('loadeddata',()=>{playIntro();updateIntroPauseUI();});
+    intro.addEventListener('play',updateIntroPauseUI);
+    intro.addEventListener('pause',updateIntroPauseUI);
+  }
+  if(soundBtn){ soundBtn.addEventListener('click',()=>{ intro.muted=!intro.muted; updateSoundUI(); if(!intro.muted) playIntro(); }); }
+  if(introPauseBtn){ introPauseBtn.addEventListener('click',()=>{ if(!intro) return; if(intro.paused) playIntro(); else intro.pause(); updateIntroPauseUI(); }); }
 
   const modal=document.getElementById('project-modal');
   const closeBtn=document.getElementById('modal-close-btn');
