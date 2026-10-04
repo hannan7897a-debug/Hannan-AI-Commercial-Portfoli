@@ -25,7 +25,7 @@ html{background:#08080a}body{overflow-x:hidden;min-width:320px}.project-card,.pr
 @media(max-width:767px){
   .projects-slider-viewport{margin-inline:-.05rem;padding-inline:.05rem .9rem}
   .projects-slider-track{gap:.85rem}
-  .projects-slider-track .project-card{flex-basis:82vw;width:82vw}
+  .projects-slider-track .project-card{flex-basis:78vw;width:78vw}
 }
 #project-modal{z-index:1000}#modal-project-video{background:#000}#intro-film video{touch-action:manipulation}.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
 @media(max-width:767px){header{padding-top:.6rem!important;padding-bottom:.6rem!important}.hero h1{font-size:38px!important;line-height:44px!important}.hero p{font-size:15px!important;line-height:24px!important}.hero-meta{flex-wrap:wrap!important;justify-content:center}.hero-meta span{font-size:9px!important}.hero-socials{flex-direction:column!important;gap:.5rem!important}.hero-socials>a{width:min(100%,320px)}#intro-film{width:100%;min-height:0!important;aspect-ratio:16/9!important;border-radius:1rem!important}#intro-film .material-symbols-outlined{font-size:15px!important}.section-head{gap:1rem!important}.project-card{border-radius:1rem!important}.project-card .project-preview{aspect-ratio:16/9;object-fit:cover}.project-card h3{font-size:18px!important;line-height:24px!important}.project-card p{font-size:12px!important}.contact-grid,.about-grid,.process{grid-template-columns:1fr!important}.contact-card{padding:1.25rem!important}.nav-cta{white-space:nowrap!important}.footer{padding-bottom:1.25rem!important}}
@@ -305,7 +305,7 @@ html{scroll-behavior:smooth}
 </button>
 </div>
 </div>
-<!-- Projects Grid (7 Featured Works) -->
+<!-- Projects Carousel (8 Featured Works) -->
 <div class="projects-slider-viewport mb-space-xl" id="projects-slider-viewport">
 <div class="projects-slider-track" id="projects-slider-track">
 <!-- Card 1: Blue Lady -->
@@ -446,7 +446,7 @@ html{scroll-behavior:smooth}
 <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-preview-image" src="assets/Cartier Tank Cinematic Storyboard.png" alt="Cartier Tank watch commercial preview" loading="lazy">
 <div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal via-transparent to-transparent opacity-80"></div>
 <div class="absolute top-3 left-3 flex items-center gap-2 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm"><span>08 WATCHES</span><span class="text-tertiary-fixed">NEW</span></div>
-<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform"><span class="material-symbols-outlined text-[24px]">play_arrow</span></span></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform"><span class="material-symbols-outlined text-[24px]">visibility</span></span></div>
 </div>
 <div class="p-space-md flex flex-col justify-between"><div class="flex items-center justify-between mb-1"><h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">Cartier Tank — Timeless Precision</h3><span class="font-label-sm text-label-sm text-tertiary-fixed">NEW / PREVIEW</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">AI commercial / watches</p></div>
 </div>
@@ -790,6 +790,7 @@ html{scroll-behavior:smooth}
   const modalTimecode=document.getElementById('modal-timecode');
   const modalVolume=document.getElementById('modal-volume-btn');
   const modalFullscreen=document.getElementById('modal-fullscreen-btn');
+  const modalHud=document.getElementById('modal-custom-hud');
   const cards=[...document.querySelectorAll('.project-card[data-video]')];
 
   const projectMap={
@@ -821,6 +822,7 @@ html{scroll-behavior:smooth}
         modalVideo.load();
       }
     }
+    if(modalHud) modalHud.classList.toggle('hidden',!hasVideo);
     if(modalImage){
       modalImage.classList.toggle('hidden',hasVideo);
       if(!hasVideo && image){
@@ -847,6 +849,7 @@ html{scroll-behavior:smooth}
       modalImage.removeAttribute('src');
       modalImage.classList.add('hidden');
     }
+    if(modalHud) modalHud.classList.remove('hidden');
     modal.classList.add('hidden');
     modal.setAttribute('aria-hidden','true');
     document.body.style.overflow='';
