@@ -13,14 +13,14 @@ html{background:#08080a}body{overflow-x:hidden;min-width:320px}.project-card,.pr
 .projects-slider-viewport::-webkit-scrollbar{display:none}
 .projects-slider-track{display:flex;gap:1.25rem;width:max-content;align-items:stretch}
 .projects-slider-track .project-card{
-  flex:0 0 calc((min(1440px,100vw - 8rem) - 2.5rem)/3);
-  width:calc((min(1440px,100vw - 8rem) - 2.5rem)/3);
+  flex:0 0 340px;
+  width:340px;
   scroll-snap-align:start;
 }
 .slider-arrow{transition:transform .55s cubic-bezier(.2,.7,.2,1),opacity .35s ease,background .35s ease}
 .slider-arrow:hover:not(:disabled){transform:translateY(-2px)}
 @media(max-width:1199px) and (min-width:768px){
-  .projects-slider-track .project-card{flex-basis:calc((100vw - 6rem - 1.25rem)/2);width:calc((100vw - 6rem - 1.25rem)/2)}
+  .projects-slider-track .project-card{flex-basis:310px;width:310px}
 }
 @media(max-width:767px){
   .projects-slider-viewport{margin-inline:-.05rem;padding-inline:.05rem .9rem}
@@ -100,7 +100,7 @@ html{scroll-behavior:smooth}
   .hero-socials>a{width:100%!important;max-width:none!important}
   .section h2{font-size:34px!important;line-height:1.08!important}
   .project-card h3{font-size:18px!important;line-height:1.25!important}
-  .projects-slider-track .project-card{flex:0 0 82vw!important;width:82vw!important}
+  .projects-slider-track .project-card{flex:0 0 78vw!important;width:78vw!important}
   .contact-card{padding:1.25rem!important}
   .loader-logo{width:70px;height:70px;border-radius:18px;font-size:21px}
   .loader-core{width:96px;height:96px}
@@ -440,6 +440,16 @@ html{scroll-behavior:smooth}
 <div class="p-space-md flex flex-col justify-between"><div class="flex items-center justify-between mb-1"><h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">Pink Divinity</h3><span class="font-label-sm text-label-sm text-tertiary-fixed">0:30 / 4K</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">AI commercial / perfume</p></div>
 </div>
 </div>
+<!-- Card 8: Cartier Tank -->
+<div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between reveal" data-category="WATCHES" data-desc="Cartier Tank watch commercial concept with refined luxury styling, precision-focused composition and timeless visual language." data-title="Cartier Tank — Timeless Precision" data-video="" data-image="assets/Cartier Tank Cinematic Storyboard.png" data-type="AI commercial / watches">
+<div class="relative w-full aspect-video overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-preview-image" src="assets/Cartier Tank Cinematic Storyboard.png" alt="Cartier Tank watch commercial preview" loading="lazy">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal via-transparent to-transparent opacity-80"></div>
+<div class="absolute top-3 left-3 flex items-center gap-2 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm"><span>08 WATCHES</span><span class="text-tertiary-fixed">NEW</span></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform"><span class="material-symbols-outlined text-[24px]">play_arrow</span></span></div>
+</div>
+<div class="p-space-md flex flex-col justify-between"><div class="flex items-center justify-between mb-1"><h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">Cartier Tank — Timeless Precision</h3><span class="font-label-sm text-label-sm text-tertiary-fixed">NEW / PREVIEW</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">AI commercial / watches</p></div>
+</div>
 <!-- Creative Philosophy Pillars Banner -->
 <div class="p-space-lg bg-surface-container rounded-xl shadow-lg">
 <div class="max-w-2xl mb-space-md">
@@ -695,6 +705,7 @@ html{scroll-behavior:smooth}
 <!-- Video / Scene Display Simulation -->
 <div class="relative aspect-video w-full bg-black flex items-center justify-center overflow-hidden">
 <video class="w-full h-full object-contain bg-black" id="modal-project-video" controls playsinline preload="metadata"></video>
+<img class="hidden w-full h-full object-contain bg-black" id="modal-project-image" alt="Project preview">
 <div class="absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-surface-charcoal/90 via-transparent to-transparent"></div>
 <!-- Live Playback HUD Controls -->
 <div class="absolute bottom-0 inset-x-0 z-20 p-space-md flex flex-col gap-2" id="modal-custom-hud">
@@ -772,6 +783,7 @@ html{scroll-behavior:smooth}
   const modalCategory=document.getElementById('modal-project-category');
   const modalDesc=document.getElementById('modal-project-desc');
   const modalVideo=document.getElementById('modal-project-video');
+  const modalImage=document.getElementById('modal-project-image');
   const modalPlay=document.getElementById('modal-play-btn');
   const modalSeek=document.getElementById('modal-seekbar');
   const modalProgress=document.getElementById('modal-progress-bar');
@@ -787,22 +799,41 @@ html{scroll-behavior:smooth}
     "Pond's Bright Beauty":{category:'SKINCARE',desc:'Clean beauty compositions, radiant lighting and product-led framing for a polished skincare commercial.',video:'assets/ponds.mp4'},
     'Shangrila Umami Sauce':{category:'FOOD & BEVERAGE',desc:'Sizzle, steam and rich product focus designed to make the food commercial feel immediate and appetizing.',video:'assets/umami sauce.mp4'},
     'Nike — Move With Purpose':{category:'SPORTSWEAR',desc:'A fast, cinematic Nike sportswear commercial built around movement, urban energy and product-led footwear framing.',video:'assets/Nike shoe.mp4'},
-    'Pink Divinity':{category:'FRAGRANCE',desc:'A soft, feminine fragrance commercial using Parisian atmosphere, roses, polished glass and warm pink light.',video:'assets/pink divinity perfume.mp4'}
+    'Pink Divinity':{category:'FRAGRANCE',desc:'A soft, feminine fragrance commercial using Parisian atmosphere, roses, polished glass and warm pink light.',video:'assets/pink divinity perfume.mp4'},
+    'Cartier Tank — Timeless Precision':{category:'WATCHES',desc:'Cartier Tank watch commercial concept with refined luxury styling, precision-focused composition and timeless visual language.',video:'',image:'assets/Cartier Tank Cinematic Storyboard.png'}
   };
 
-  function openModal(title,category,desc,video){
+  function openModal(title,category,desc,video,image){
     if(!modal) return;
     modalTitle.textContent=title||'Featured Project';
     modalCategory.textContent=category||'COMMERCIAL';
     modalDesc.textContent=desc||'Cinematic product-led AI direction.';
+    const hasVideo=!!video;
     if(modalVideo){
-      modalVideo.src=video||'';
-      modalVideo.load();
-      modal.classList.remove('hidden');
-      modal.setAttribute('aria-hidden','false');
-      document.body.style.overflow='hidden';
-      modalVideo.addEventListener('loadeddata',()=>modalVideo.play().catch(()=>{}),{once:true});
+      modalVideo.pause();
+      modalVideo.classList.toggle('hidden',!hasVideo);
+      if(hasVideo){
+        modalVideo.src=video;
+        modalVideo.load();
+        modalVideo.addEventListener('loadeddata',()=>modalVideo.play().catch(()=>{}),{once:true});
+      }else{
+        modalVideo.removeAttribute('src');
+        modalVideo.load();
+      }
     }
+    if(modalImage){
+      modalImage.classList.toggle('hidden',hasVideo);
+      if(!hasVideo && image){
+        modalImage.src=image;
+        modalImage.alt=title||'Project preview';
+      }else{
+        modalImage.removeAttribute('src');
+      }
+    }
+    modal.classList.remove('hidden');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    updatePlaybackUI();
   }
   function closeModal(){
     if(!modal) return;
@@ -810,6 +841,11 @@ html{scroll-behavior:smooth}
       modalVideo.pause();
       modalVideo.removeAttribute('src');
       modalVideo.load();
+      modalVideo.classList.remove('hidden');
+    }
+    if(modalImage){
+      modalImage.removeAttribute('src');
+      modalImage.classList.add('hidden');
     }
     modal.classList.add('hidden');
     modal.setAttribute('aria-hidden','true');
@@ -856,7 +892,7 @@ html{scroll-behavior:smooth}
   cards.forEach(card=>card.addEventListener('click',()=>{
     const title=card.getAttribute('data-title');
     const p=projectMap[title]||{};
-    openModal(title,p.category||card.getAttribute('data-category'),p.desc||card.getAttribute('data-desc'),p.video||card.getAttribute('data-video'));
+    openModal(title,p.category||card.getAttribute('data-category'),p.desc||card.getAttribute('data-desc'),p.video||card.getAttribute('data-video'),card.getAttribute('data-image'));
   }));
   if(closeBtn) closeBtn.addEventListener('click',(event)=>{ event.preventDefault(); event.stopPropagation(); closeModal(); });
   if(discussBtn) discussBtn.addEventListener('click',closeModal);
@@ -920,10 +956,7 @@ html{scroll-behavior:smooth}
   if(prevProjects) prevProjects.addEventListener('click',()=>moveProjects(-1));
   if(nextProjects) nextProjects.addEventListener('click',()=>moveProjects(1));
   if(projectViewport){
-    projectViewport.addEventListener('scroll',()=>{
-      updateProjectArrows();
-      scheduleMotion();
-    },{passive:true});
+    projectViewport.addEventListener('scroll',updateProjectArrows,{passive:true});
     window.addEventListener('resize',updateProjectArrows);
     window.setTimeout(updateProjectArrows,120);
     updateProjectArrows();
