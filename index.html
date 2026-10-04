@@ -13,14 +13,14 @@ html{background:#08080a}body{overflow-x:hidden;min-width:320px}.project-card,.pr
 .projects-slider-viewport::-webkit-scrollbar{display:none}
 .projects-slider-track{display:flex;gap:1.25rem;width:max-content;align-items:stretch}
 .projects-slider-track .project-card{
-  flex:0 0 340px;
-  width:340px;
+  flex:0 0 300px;
+  width:300px;
   scroll-snap-align:start;
 }
 .slider-arrow{transition:transform .55s cubic-bezier(.2,.7,.2,1),opacity .35s ease,background .35s ease}
 .slider-arrow:hover:not(:disabled){transform:translateY(-2px)}
 @media(max-width:1199px) and (min-width:768px){
-  .projects-slider-track .project-card{flex-basis:310px;width:310px}
+  .projects-slider-track .project-card{flex-basis:280px;width:280px}
 }
 @media(max-width:767px){
   .projects-slider-viewport{margin-inline:-.05rem;padding-inline:.05rem .9rem}
@@ -100,7 +100,7 @@ html{scroll-behavior:smooth}
   .hero-socials>a{width:100%!important;max-width:none!important}
   .section h2{font-size:34px!important;line-height:1.08!important}
   .project-card h3{font-size:18px!important;line-height:1.25!important}
-  .projects-slider-track .project-card{flex:0 0 78vw!important;width:78vw!important}
+  .projects-slider-track .project-card{flex:0 0 76vw!important;width:76vw!important}
   .contact-card{padding:1.25rem!important}
   .loader-logo{width:70px;height:70px;border-radius:18px;font-size:21px}
   .loader-core{width:96px;height:96px}
@@ -441,14 +441,14 @@ html{scroll-behavior:smooth}
 </div>
 </div>
 <!-- Card 8: Cartier Tank -->
-<div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between reveal" data-category="WATCHES" data-desc="Cartier Tank watch commercial concept with refined luxury styling, precision-focused composition and timeless visual language." data-title="Cartier Tank — Timeless Precision" data-video="" data-image="assets/Cartier Tank Cinematic Storyboard.png" data-type="AI commercial / watches">
+<div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between reveal" data-category="WATCHES" data-desc="Cartier Tank watch commercial with refined luxury styling, precision-focused composition and timeless visual language." data-title="Cartier Watch" data-video="assets/Create_UGC_ad_storyboard_20261004175954.mp4" data-type="AI commercial / watches">
 <div class="relative w-full aspect-video overflow-hidden bg-surface-container">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-preview-image" src="assets/Cartier Tank Cinematic Storyboard.png" alt="Cartier Tank watch commercial preview" loading="lazy">
+<video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-preview" data-video="assets/Create_UGC_ad_storyboard_20261004175954.mp4" muted loop playsinline preload="metadata" aria-label="Cartier Watch commercial preview"></video>
 <div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal via-transparent to-transparent opacity-80"></div>
 <div class="absolute top-3 left-3 flex items-center gap-2 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm"><span>08 WATCHES</span><span class="text-tertiary-fixed">NEW</span></div>
-<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform"><span class="material-symbols-outlined text-[24px]">visibility</span></span></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform"><span class="material-symbols-outlined text-[24px]">play_arrow</span></span></div>
 </div>
-<div class="p-space-md flex flex-col justify-between"><div class="flex items-center justify-between mb-1"><h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">Cartier Tank — Timeless Precision</h3><span class="font-label-sm text-label-sm text-tertiary-fixed">NEW / PREVIEW</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">AI commercial / watches</p></div>
+<div class="p-space-md flex flex-col justify-between"><div class="flex items-center justify-between mb-1"><h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">Cartier Watch</h3><span class="font-label-sm text-label-sm text-tertiary-fixed">0:10 / 4K</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">AI commercial / watches</p></div>
 </div>
 <!-- Creative Philosophy Pillars Banner -->
 <div class="p-space-lg bg-surface-container rounded-xl shadow-lg">
@@ -801,7 +801,7 @@ html{scroll-behavior:smooth}
     'Shangrila Umami Sauce':{category:'FOOD & BEVERAGE',desc:'Sizzle, steam and rich product focus designed to make the food commercial feel immediate and appetizing.',video:'assets/umami sauce.mp4'},
     'Nike — Move With Purpose':{category:'SPORTSWEAR',desc:'A fast, cinematic Nike sportswear commercial built around movement, urban energy and product-led footwear framing.',video:'assets/Nike shoe.mp4'},
     'Pink Divinity':{category:'FRAGRANCE',desc:'A soft, feminine fragrance commercial using Parisian atmosphere, roses, polished glass and warm pink light.',video:'assets/pink divinity perfume.mp4'},
-    'Cartier Tank — Timeless Precision':{category:'WATCHES',desc:'Cartier Tank watch commercial concept with refined luxury styling, precision-focused composition and timeless visual language.',video:'',image:'assets/Cartier Tank Cinematic Storyboard.png'}
+    'Cartier Watch':{category:'WATCHES',desc:'Cartier Tank watch commercial with refined luxury styling, precision-focused composition and timeless visual language.',video:'assets/Create_UGC_ad_storyboard_20261004175954.mp4'}
   };
 
   function openModal(title,category,desc,video,image){
