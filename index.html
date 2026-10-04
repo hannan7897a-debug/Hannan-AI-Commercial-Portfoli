@@ -12,15 +12,17 @@ html{background:#08080a}body{overflow-x:hidden;min-width:320px}.project-card,.pr
 }
 .projects-slider-viewport::-webkit-scrollbar{display:none}
 .projects-slider-track{display:flex;gap:1.25rem;width:max-content;align-items:stretch}
-.projects-slider-track .project-card{
-  flex:0 0 300px;
-  width:300px;
+.projects-slider-track > .project-card{
+  flex:0 0 300px!important;
+  width:300px!important;
+  max-width:300px!important;
+  min-width:300px!important;
   scroll-snap-align:start;
 }
 .slider-arrow{transition:transform .55s cubic-bezier(.2,.7,.2,1),opacity .35s ease,background .35s ease}
 .slider-arrow:hover:not(:disabled){transform:translateY(-2px)}
 @media(max-width:1199px) and (min-width:768px){
-  .projects-slider-track .project-card{flex-basis:280px;width:280px}
+  .projects-slider-track > .project-card{flex-basis:280px!important;width:280px!important;max-width:280px!important;min-width:280px!important}
 }
 @media(max-width:767px){
   .projects-slider-viewport{margin-inline:-.05rem;padding-inline:.05rem .9rem}
@@ -100,7 +102,7 @@ html{scroll-behavior:smooth}
   .hero-socials>a{width:100%!important;max-width:none!important}
   .section h2{font-size:34px!important;line-height:1.08!important}
   .project-card h3{font-size:18px!important;line-height:1.25!important}
-  .projects-slider-track .project-card{flex:0 0 76vw!important;width:76vw!important}
+  .projects-slider-track > .project-card{flex:0 0 76vw!important;width:76vw!important;max-width:76vw!important;min-width:76vw!important}
   .contact-card{padding:1.25rem!important}
   .loader-logo{width:70px;height:70px;border-radius:18px;font-size:21px}
   .loader-core{width:96px;height:96px}
@@ -397,7 +399,7 @@ html{scroll-behavior:smooth}
 </div>
 </div>
 <!-- Card 5: Shangrila Umami Sauce -->
-<div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between md:col-span-2 lg:col-span-2 reveal" data-category="FOOD &amp; BEVERAGE" data-desc="Explosive wok fire, sizzling spices, and rich caramel-textured sauce pours directed to trigger immediate appetite and sensory craving." data-title="Shangrila Umami Sauce" data-video="assets/umami sauce.mp4" data-type="AI commercial / food">
+<div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between reveal" data-category="FOOD &amp; BEVERAGE" data-desc="Explosive wok fire, sizzling spices, and rich caramel-textured sauce pours directed to trigger immediate appetite and sensory craving." data-title="Shangrila Umami Sauce" data-video="assets/umami sauce.mp4" data-type="AI commercial / food">
 <div class="relative w-full aspect-video lg:aspect-[21/9] overflow-hidden bg-surface-container">
 <video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-preview" data-video="assets/umami sauce.mp4" muted loop playsinline preload="metadata"></video>
 <div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal via-transparent to-transparent opacity-80"></div>
