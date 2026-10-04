@@ -890,7 +890,6 @@ html{scroll-behavior:smooth}
     if(!motionRaf) motionRaf=requestAnimationFrame(refreshMotion);
   }
   window.addEventListener('scroll',scheduleMotion,{passive:true});
-  if(projectViewport) projectViewport.addEventListener('scroll',scheduleMotion,{passive:true});
   window.addEventListener('resize',scheduleMotion);
   window.addEventListener('pageshow',scheduleMotion);
   window.setTimeout(scheduleMotion,80);
