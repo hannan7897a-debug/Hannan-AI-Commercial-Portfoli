@@ -27,7 +27,7 @@ html{background:#08080a}body{overflow-x:hidden;min-width:320px}.project-card,.pr
 @media(max-width:767px){
   .projects-slider-viewport{margin-inline:-.05rem;padding-inline:.05rem .9rem}
   .projects-slider-track{gap:.85rem}
-  .projects-slider-track .project-card{flex-basis:78vw;width:78vw}
+  .projects-slider-track > .project-card{flex:0 0 76vw!important;width:76vw!important;max-width:76vw!important;min-width:76vw!important}
 }
 #project-modal{z-index:1000}#modal-project-video{background:#000}#intro-film video{touch-action:manipulation}.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
 @media(max-width:767px){header{padding-top:.6rem!important;padding-bottom:.6rem!important}.hero h1{font-size:38px!important;line-height:44px!important}.hero p{font-size:15px!important;line-height:24px!important}.hero-meta{flex-wrap:wrap!important;justify-content:center}.hero-meta span{font-size:9px!important}.hero-socials{flex-direction:column!important;gap:.5rem!important}.hero-socials>a{width:min(100%,320px)}#intro-film{width:100%;min-height:0!important;aspect-ratio:16/9!important;border-radius:1rem!important}#intro-film .material-symbols-outlined{font-size:15px!important}.section-head{gap:1rem!important}.project-card{border-radius:1rem!important}.project-card .project-preview{aspect-ratio:16/9;object-fit:cover}.project-card h3{font-size:18px!important;line-height:24px!important}.project-card p{font-size:12px!important}.contact-grid,.about-grid,.process{grid-template-columns:1fr!important}.contact-card{padding:1.25rem!important}.nav-cta{white-space:nowrap!important}.footer{padding-bottom:1.25rem!important}}
@@ -420,7 +420,6 @@ html{scroll-behavior:smooth}
 <span class="font-label-sm text-label-sm text-tertiary-fixed self-start sm:self-auto">0:15 / 4K HIGHLIGHT</span>
 </div>
 </div>
-</div>
 <!-- Card 6: Nike -->
 <div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between reveal" data-category="SPORTSWEAR" data-desc="A fast, cinematic Nike sportswear commercial built around movement, urban energy and product-led footwear framing." data-title="Nike — Move With Purpose" data-video="assets/Nike shoe.mp4" data-type="AI commercial / sportswear">
 <div class="relative w-full aspect-video overflow-hidden bg-surface-container">
@@ -451,6 +450,7 @@ html{scroll-behavior:smooth}
 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform"><span class="material-symbols-outlined text-[24px]">play_arrow</span></span></div>
 </div>
 <div class="p-space-md flex flex-col justify-between"><div class="flex items-center justify-between mb-1"><h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">Cartier Watch</h3><span class="font-label-sm text-label-sm text-tertiary-fixed">0:10 / 4K</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">AI commercial / watches</p></div>
+</div>
 </div>
 <!-- Creative Philosophy Pillars Banner -->
 <div class="p-space-lg bg-surface-container rounded-xl shadow-lg">
