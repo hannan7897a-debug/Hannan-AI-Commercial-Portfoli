@@ -5,11 +5,14 @@
 <style>
 html{background:#08080a}body{overflow-x:hidden;min-width:320px}.project-card,.project-card *{min-width:0}.project-preview{background:#08080a}.project-card:hover .project-preview{transform:scale(1.035)}
 .projects-slider-viewport{
-  position:relative;width:100%;overflow-x:auto;overflow-y:visible;
+  position:relative;display:block;width:100%;max-width:100%;min-width:0;
+  overflow-x:auto;overflow-y:hidden;
   scroll-snap-type:x mandatory;scroll-behavior:smooth;
   -webkit-overflow-scrolling:touch;touch-action:pan-x pinch-zoom;
-  overscroll-behavior-x:contain;scrollbar-width:none;padding:4px 2px 14px;
+  overscroll-behavior-x:contain;overscroll-behavior-y:auto;
+  scrollbar-width:none;padding:4px 2px 14px;
 }
+.project-preview-contain{object-fit:contain!important;background:#08080a;}
 .projects-slider-viewport::-webkit-scrollbar{display:none}
 .projects-slider-track{display:flex;gap:1.25rem;width:max-content;align-items:stretch}
 .projects-slider-track > .project-card{
@@ -129,7 +132,7 @@ html{scroll-behavior:smooth}
   <div class="loader-sub">AI COMMERCIAL ADS</div>
   <div class="loader-line"><i></i></div>
 </div>
-<div class="pointer-events-none fixed inset-0 z-0 overflow-hidden"><div class="absolute -top-[15%] left-[20%] w-[650px] h-[650px] rounded-full bg-glow-cyan blur-[130px]"></div><div class="absolute top-[40%] -right-[15%] w-[600px] h-[600px] rounded-full bg-glow-violet blur-[140px]"></div></div><header class="fixed top-0 left-0 w-full z-50 py-space-sm px-gutter-mobile md:px-margin pointer-events-none"><div class="max-w-[1440px] mx-auto"><div class="h-20 w-full rounded-full bg-surface-charcoal/80 backdrop-blur-xl px-gutter flex items-center justify-between pointer-events-auto shadow-[0_12px_40px_rgba(0,0,0,0.45)]"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-xs group" data-path="portfolio-showcase" href="#"><div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center group-hover:bg-primary-container transition-colors duration-300"><span class="font-label-lg text-label-lg text-primary group-hover:text-on-primary-container uppercase transition-colors">AH</span></div><div class="hidden sm:flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none tracking-tight">Abdul Hannan</span><span class="font-label-sm text-label-sm text-primary uppercase tracking-widest mt-1">AI Commercial Director</span></div></a><div class="hidden lg:flex items-center gap-space-xs pl-space-sm"><a class="inline-flex items-center gap-1 px-space-xs py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm uppercase" href="https://www.facebook.com/profile.php?id=61595157846630" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><span class="inline-flex items-center justify-center" style="color:#1877F2"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.195 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.98h-1.513c-1.49 0-1.956.93-1.956 1.885v2.256h3.328l-.532 3.49h-2.796V24C19.612 23.195 24 18.1 24 12.073Z"/></svg></span><span>FB</span></a><a class="inline-flex items-center gap-1 px-space-xs py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm uppercase" href="https://www.instagram.com/grow_with_abdulhannan27/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><span class="inline-flex items-center justify-center" style="color:#E4405F"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span><span>IG</span></a><a class="inline-flex items-center gap-1 px-space-xs py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm uppercase" href="https://www.linkedin.com/in/abdul-hannan-323aa23a0/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><span class="inline-flex items-center justify-center" style="color:#0A66C2"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.026-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span><span>IN</span></a><a class="inline-flex items-center gap-1 px-space-xs py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm uppercase" href="https://wa.me/923232307218" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp"><span class="inline-flex items-center justify-center" style="color:#25D366"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48A11.9 11.9 0 0 0 12.04 0C5.42 0 .04 5.38.04 12c0 2.11.55 4.17 1.6 5.98L0 24l6.18-1.62A11.95 11.95 0 0 0 12.04 24c6.62 0 12-5.38 12-12 0-3.2-1.25-6.22-3.52-8.52zM12.04 21.96a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.67.96.98-3.58-.23-.37a9.93 9.93 0 1 1 8.33 4.58z"/><path fill="#ffffff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.768.966-.94 1.164-.173.198-.347.223-.645.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.447-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.182-.01-.39-.012-.598-.012-.208 0-.546.078-.832.384-.286.306-1.093 1.069-1.093 2.604s1.12 3.023 1.276 3.23c.156.208 2.207 3.37 5.346 4.725.747.323 1.33.516 1.785.66.75.239 1.431.205 1.97.124.601-.09 1.85-.757 2.11-1.487.26-.73.26-1.355.182-1.487-.078-.13-.286-.208-.598-.364z"/></svg></span><span>WA</span></a><a class="inline-flex items-center gap-1 px-space-xs py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm uppercase" href="https://www.tiktok.com/@abdulhannanai" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok"><span class="inline-flex items-center justify-center" style="color:#25F4EE"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-3.9V2h-3.6v13.45a2.9 2.9 0 1 1-2-2.76V9.06a6.5 6.5 0 1 0 5.6 6.39V8.12a8.42 8.42 0 0 0 5.18 1.77V6.35a5.1 5.1 0 0 1-1.41-.66Z"/></svg></span><span>TT</span></a></div></div><nav class="hidden md:flex items-center gap-space-md" data-active-classes="text-primary font-semibold"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="work" href="#work">Work</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="services" href="#services">Services</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="process" href="#process">Process</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="about" href="#about">About</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="contact" href="#contact">Contact</a></nav><div class="flex items-center gap-space-sm"><a class="inline-flex items-center gap-2 h-11 px-space-md rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase tracking-wider hover:shadow-[0_0_24px_rgba(0,240,255,0.45)] -translate-y-0 hover:-translate-y-0.5 transition-all duration-300" data-path="contact" href="#contact"><span>Let's Talk</span><span class="material-symbols-outlined text-[16px]">arrow_outward</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-20 bg-surface relative z-10"><div class="flex flex-col w-full text-on-surface">
+<div class="pointer-events-none fixed inset-0 z-0 overflow-hidden"><div class="absolute -top-[15%] left-[20%] w-[650px] h-[650px] rounded-full bg-glow-cyan blur-[130px]"></div><div class="absolute top-[40%] -right-[15%] w-[600px] h-[600px] rounded-full bg-glow-violet blur-[140px]"></div></div><header class="fixed top-0 left-0 w-full z-50 py-space-sm px-gutter-mobile md:px-margin pointer-events-none"><div class="max-w-[1440px] mx-auto"><div class="h-20 w-full rounded-full bg-surface-charcoal/80 backdrop-blur-xl px-gutter flex items-center justify-between pointer-events-auto shadow-[0_12px_40px_rgba(0,0,0,0.45)]"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-xs group" data-path="portfolio-showcase" href="#"><div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center group-hover:bg-primary-container transition-colors duration-300"><span class="font-label-lg text-label-lg text-primary group-hover:text-on-primary-container uppercase transition-colors">AH</span></div><div class="hidden sm:flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none tracking-tight">Abdul Hannan</span><span class="font-label-sm text-label-sm text-primary uppercase tracking-widest mt-1">AI Commercial Director</span></div></a><div class="hidden lg:flex items-center gap-space-xs pl-space-sm"><a class="inline-flex items-center gap-1 px-space-xs py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm uppercase" href="https://www.facebook.com/profile.php?id=61595157846630" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><span class="inline-flex items-center justify-center" style="color:#1877F2"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.195 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.98h-1.513c-1.49 0-1.956.93-1.956 1.885v2.256h3.328l-.532 3.49h-2.796V24C19.612 23.195 24 18.1 24 12.073Z"/></svg></span><span>FB</span></a><a class="inline-flex items-center gap-1 px-space-xs py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm uppercase" href="https://www.instagram.com/grow_with_abdulhannan27/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><span class="inline-flex items-center justify-center" style="color:#E4405F"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span><span>IG</span></a><a class="inline-flex items-center gap-1 px-space-xs py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm uppercase" href="https://www.linkedin.com/in/abdul-hannan-323aa23a0/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><span class="inline-flex items-center justify-center" style="color:#0A66C2"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.026-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.35V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span><span>IN</span></a><a class="inline-flex items-center gap-1 px-space-xs py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm uppercase" href="https://wa.me/923232307218" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp"><span class="inline-flex items-center justify-center" style="color:#25D366"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.52 3.48A11.9 11.9 0 0 0 12.04 0C5.42 0 .04 5.38.04 12c0 2.11.55 4.17 1.6 5.98L0 24l6.18-1.62A11.95 11.95 0 0 0 12.04 24c6.62 0 12-5.38 12-12 0-3.2-1.25-6.22-3.52-8.52zM12.04 21.96a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.67.96.98-3.58-.23-.37a9.93 9.93 0 1 1 8.33 4.58z"/><path fill="#fff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.768.966-.94 1.164-.173.198-.347.223-.645.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.447-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.182-.01-.39-.012-.598-.012-.208 0-.546.078-.832.384-.286.306-1.093 1.069-1.093 2.604s1.12 3.023 1.276 3.23c.156.208 2.207 3.37 5.346 4.725.747.323 1.33.516 1.785.66.75.239 1.431.205 1.97.124.601-.09 1.85-.757 2.11-1.487.26-.73.26-1.355.182-1.487-.078-.13-.286-.208-.598-.364z"/></svg></span><span>WA</span></a><a class="inline-flex items-center gap-1 px-space-xs py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm uppercase" href="https://www.tiktok.com/@abdulhannanai" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok"><span class="inline-flex items-center justify-center" style="color:#25F4EE"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-3.9V2h-3.6v13.45a2.9 2.9 0 1 1-2-2.76V9.06a6.5 6.5 0 1 0 5.6 6.39V8.12a8.42 8.42 0 0 0 5.18 1.77V6.35a5.1 5.1 0 0 1-1.41-.66Z"/></svg></span><span>TT</span></a></div></div></div><nav class="hidden md:flex items-center gap-space-md" data-active-classes="text-primary font-semibold"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="work" href="#work">Work</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="services" href="#services">Services</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="process" href="#process">Process</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="about" href="#about">About</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="contact" href="#contact">Contact</a></nav><div class="flex items-center gap-space-sm"><a class="inline-flex items-center gap-2 h-11 px-space-md rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg uppercase tracking-wider hover:shadow-[0_0_24px_rgba(0,240,255,0.45)] -translate-y-0 hover:-translate-y-0.5 transition-all duration-300" data-path="contact" href="#contact"><span>Let's Talk</span><span class="material-symbols-outlined text-[16px]">arrow_outward</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-20 bg-surface relative z-10"><div class="flex flex-col w-full text-on-surface">
 <!-- HERO SECTION -->
 <section class="relative w-full pt-8 pb-space-xl px-gutter-mobile md:px-margin overflow-hidden reveal">
 <div class="max-w-[1440px] mx-auto flex flex-col items-center">
@@ -297,16 +300,27 @@ html{scroll-behavior:smooth}
 </button>
 </div>
 </div>
-<!-- Projects Carousel (8 Featured Works) -->
+<!-- Projects Carousel (9 Featured Works) -->
 <div class="projects-slider-viewport mb-space-xl" id="projects-slider-viewport">
 <div class="projects-slider-track" id="projects-slider-track">
-<!-- Card 1: Blue Lady -->
+<!-- Card 1: Snakitos ChickPea Puffs Masala -->
+<div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between reveal" data-category="SNACKS" data-desc="A punchy vertical snack commercial for Snakitos ChickPea Puffs Masala, built around bold product focus and appetite-led visuals." data-title="Snakitos ChickPea Puffs Masala" data-video="assets/chikpea ad.mp4" data-type="AI commercial / snacks">
+<div class="relative w-full aspect-video overflow-hidden bg-surface-container">
+<video class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 project-preview project-preview-contain" data-video="assets/chikpea ad.mp4" muted loop playsinline preload="metadata" aria-label="Snakitos ChickPea Puffs Masala commercial preview"></video>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal via-transparent to-transparent opacity-80"></div>
+<div class="absolute top-3 left-3 flex items-center gap-2 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm"><span>01 SNACKS</span><span class="text-tertiary-fixed">NEW</span></div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform"><span class="material-symbols-outlined text-[24px]">play_arrow</span></span></div>
+</div>
+<div class="p-space-md flex flex-col justify-between"><div class="flex items-center justify-between mb-1 gap-2"><h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">Snakitos ChickPea Puffs Masala</h3><span class="font-label-sm text-label-sm text-tertiary-fixed shrink-0">0:21 / 9:16</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">AI commercial / snack ad</p></div>
+</div>
+
+<!-- Card 2: Blue Lady -->
 <div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between reveal" data-category="FRAGRANCE" data-desc="Ethereal fluid dynamics and crystalline glass reflections sculpted through latent diffusion models to create an unforgettable luxury perfume ad." data-title="Blue Lady" data-video="assets/blue lady.mp4" data-type="AI commercial / perfume">
 <div class="relative w-full aspect-video overflow-hidden bg-surface-container">
 <video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-preview" data-video="assets/blue lady.mp4" muted loop playsinline preload="metadata"></video>
 <div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal via-transparent to-transparent opacity-80"></div>
 <div class="absolute top-3 left-3 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm">
-              01 FRAGRANCE
+              02 FRAGRANCE
             </div>
 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
 <span class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
@@ -322,13 +336,13 @@ html{scroll-behavior:smooth}
 <p class="font-body-sm text-body-sm text-on-surface-variant">AI commercial / perfume</p>
 </div>
 </div>
-<!-- Card 2: Napoleon Boss -->
+<!-- Card 3: Napoleon Boss -->
 <div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between reveal" data-category="FRAGRANCE" data-desc="Intense, masculine obsidian textures and smoky embers paired with aggressive cinematic camera rotations for executive brand positioning." data-title="Napoleon Boss" data-video="assets/napoleon.mp4" data-type="AI commercial / fragrance">
 <div class="relative w-full aspect-video overflow-hidden bg-surface-container">
 <video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-preview" data-video="assets/napoleon.mp4" muted loop playsinline preload="metadata"></video>
 <div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal via-transparent to-transparent opacity-80"></div>
 <div class="absolute top-3 left-3 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm">
-              02 FRAGRANCE
+              03 FRAGRANCE
             </div>
 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
 <span class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
@@ -344,13 +358,13 @@ html{scroll-behavior:smooth}
 <p class="font-body-sm text-body-sm text-on-surface-variant">AI commercial / fragrance</p>
 </div>
 </div>
-<!-- Card 3: Growing With Care -->
+<!-- Card 4: Growing With Care -->
 <div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between reveal" data-category="BABY CARE" data-desc="Warm natural sunlight, macro botanicals, and tender pacing created to communicate pure organic safety and maternal reassurance." data-title="Growing With Care" data-video="assets/NI 1.mp4" data-type="AI commercial / nutrition">
 <div class="relative w-full aspect-video overflow-hidden bg-surface-container">
 <video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-preview" data-video="assets/NI 1.mp4" muted loop playsinline preload="metadata"></video>
 <div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal via-transparent to-transparent opacity-80"></div>
 <div class="absolute top-3 left-3 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm">
-              03 BABY CARE
+              04 BABY CARE
             </div>
 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
 <span class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-105 transition-transform">
@@ -366,13 +380,13 @@ html{scroll-behavior:smooth}
 <p class="font-body-sm text-body-sm text-on-surface-variant">AI commercial / nutrition</p>
 </div>
 </div>
-<!-- Card 4: Pond's Bright Beauty -->
+<!-- Card 5: Pond's Bright Beauty -->
 <div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between reveal" data-category="SKINCARE" data-desc="Cellular-level micro hydration renders and radiant dewy skin simulations that highlight instant brightening performance." data-title="Pond's Bright Beauty" data-video="assets/ponds.mp4" data-type="AI commercial / skincare">
 <div class="relative w-full aspect-video overflow-hidden bg-surface-container">
 <video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-preview" data-video="assets/ponds.mp4" muted loop playsinline preload="metadata"></video>
 <div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal via-transparent to-transparent opacity-80"></div>
 <div class="absolute top-3 left-3 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm">
-              04 SKINCARE
+              05 SKINCARE
             </div>
 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
 <span class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
@@ -388,13 +402,13 @@ html{scroll-behavior:smooth}
 <p class="font-body-sm text-body-sm text-on-surface-variant">AI commercial / skincare</p>
 </div>
 </div>
-<!-- Card 5: Shangrila Umami Sauce -->
+<!-- Card 6: Shangrila Umami Sauce -->
 <div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between reveal" data-category="FOOD &amp; BEVERAGE" data-desc="Explosive wok fire, sizzling spices, and rich caramel-textured sauce pours directed to trigger immediate appetite and sensory craving." data-title="Shangrila Umami Sauce" data-video="assets/umami sauce.mp4" data-type="AI commercial / food">
 <div class="relative w-full aspect-video lg:aspect-[21/9] overflow-hidden bg-surface-container">
 <video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-preview" data-video="assets/umami sauce.mp4" muted loop playsinline preload="metadata"></video>
 <div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal via-transparent to-transparent opacity-80"></div>
 <div class="absolute top-3 left-3 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm">
-              05 FOOD &amp; BEVERAGE
+              06 FOOD &amp; BEVERAGE
             </div>
 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
 <span class="w-14 h-14 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
@@ -410,35 +424,36 @@ html{scroll-behavior:smooth}
 <span class="font-label-sm text-label-sm text-tertiary-fixed self-start sm:self-auto">0:15 / 4K HIGHLIGHT</span>
 </div>
 </div>
-<!-- Card 6: Nike -->
+<!-- Card 7: Nike -->
 <div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between reveal" data-category="SPORTSWEAR" data-desc="A fast, cinematic Nike sportswear commercial built around movement, urban energy and product-led footwear framing." data-title="Nike — Move With Purpose" data-video="assets/Nike shoe.mp4" data-type="AI commercial / sportswear">
 <div class="relative w-full aspect-video overflow-hidden bg-surface-container">
 <video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-preview" data-video="assets/Nike shoe.mp4" muted loop playsinline preload="metadata" aria-label="Nike — Move With Purpose campaign preview"></video>
 <div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal via-transparent to-transparent opacity-80"></div>
-<div class="absolute top-3 left-3 flex items-center gap-2 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm"><span>06 SPORTSWEAR</span><span class="text-tertiary-fixed">NEW</span></div>
+<div class="absolute top-3 left-3 flex items-center gap-2 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm"><span>07 SPORTSWEAR</span><span class="text-tertiary-fixed">NEW</span></div>
 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform"><span class="material-symbols-outlined text-[24px]">play_arrow</span></span></div>
 </div>
 <div class="p-space-md flex flex-col justify-between"><div class="flex items-center justify-between mb-1"><h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">Nike — Move With Purpose</h3><span class="font-label-sm text-label-sm text-tertiary-fixed">0:10 / 4K</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">AI commercial / sportswear</p></div>
 </div>
-<!-- Card 7: Pink Divinity -->
+<!-- Card 8: Pink Divinity -->
 <div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between reveal" data-category="FRAGRANCE" data-desc="A soft, feminine fragrance commercial for Pink Divinity, using Parisian atmosphere, roses, polished glass and warm pink light." data-title="Pink Divinity" data-video="assets/pink divinity perfume.mp4" data-type="AI commercial / perfume">
 <div class="relative w-full aspect-video overflow-hidden bg-surface-container">
 <video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-preview" data-video="assets/pink divinity perfume.mp4" muted loop playsinline preload="metadata" aria-label="Pink Divinity perfume campaign preview"></video>
 <div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal via-transparent to-black opacity-80"></div>
-<div class="absolute top-3 left-3 flex items-center gap-2 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm"><span>07 FRAGRANCE</span><span class="text-tertiary-fixed">NEW</span></div>
+<div class="absolute top-3 left-3 flex items-center gap-2 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm"><span>08 FRAGRANCE</span><span class="text-tertiary-fixed">NEW</span></div>
 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform"><span class="material-symbols-outlined text-[24px]">play_arrow</span></span></div>
 </div>
 <div class="p-space-md flex flex-col justify-between"><div class="flex items-center justify-between mb-1"><h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">Pink Divinity</h3><span class="font-label-sm text-label-sm text-tertiary-fixed">0:30 / 4K</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">AI commercial / perfume</p></div>
 </div>
-<!-- Card 8: Cartier Tank -->
+<!-- Card 9: Cartier Tank -->
 <div class="project-card group cursor-pointer bg-surface-charcoal rounded-xl overflow-hidden shadow-lg flex flex-col justify-between reveal" data-category="WATCHES" data-desc="Cartier Tank watch commercial with refined luxury styling, precision-focused composition and timeless visual language." data-title="Cartier Watch" data-video="assets/Create_UGC_ad_storyboard_20261004175954.mp4" data-type="AI commercial / watches">
 <div class="relative w-full aspect-video overflow-hidden bg-surface-container">
 <video class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 project-preview" data-video="assets/Create_UGC_ad_storyboard_20261004175954.mp4" muted loop playsinline preload="metadata" aria-label="Cartier Watch commercial preview"></video>
 <div class="absolute inset-0 bg-gradient-to-t from-surface-charcoal via-transparent to-transparent opacity-80"></div>
-<div class="absolute top-3 left-3 flex items-center gap-2 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm"><span>08 WATCHES</span><span class="text-tertiary-fixed">NEW</span></div>
+<div class="absolute top-3 left-3 flex items-center gap-2 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded text-primary font-label-sm text-label-sm"><span>09 WATCHES</span><span class="text-tertiary-fixed">NEW</span></div>
 <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"><span class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform"><span class="material-symbols-outlined text-[24px]">play_arrow</span></span></div>
 </div>
 <div class="p-space-md flex flex-col justify-between"><div class="flex items-center justify-between mb-1"><h3 class="font-headline-sm text-headline-sm text-text-primary group-hover:text-primary transition-colors">Cartier Watch</h3><span class="font-label-sm text-label-sm text-tertiary-fixed">0:10 / 4K</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">AI commercial / watches</p></div>
+</div>
 </div>
 </div>
 <!-- Creative Philosophy Pillars Banner -->
@@ -771,6 +786,7 @@ html{scroll-behavior:smooth}
   const cards=[...document.querySelectorAll('.project-card[data-video]')];
 
   const projectMap={
+    'Snakitos ChickPea Puffs Masala':{category:'SNACKS',desc:'A punchy vertical snack commercial for Snakitos ChickPea Puffs Masala, built around bold product focus and appetite-led visuals.',video:'assets/chikpea ad.mp4'},
     'Blue Lady':{category:'FRAGRANCE',desc:'Ethereal fluid dynamics and crystalline glass reflections shaped into a premium fragrance commercial.',video:'assets/blue lady.mp4'},
     'Napoleon Boss':{category:'FRAGRANCE',desc:'Intense obsidian textures, smoky atmosphere and cinematic movement for a bold fragrance presentation.',video:'assets/napoleon.mp4'},
     'Growing With Care':{category:'BABY CARE',desc:'Warm natural lighting and gentle pacing built around care, trust and product-led storytelling.',video:'assets/NI 1.mp4'},
@@ -912,33 +928,38 @@ html{scroll-behavior:smooth}
   window.setTimeout(scheduleMotion,500);
   refreshMotion();
 
-  // Compact project carousel: arrow controls + native touch/finger swipe.
+  // Compact project carousel: arrows move only the video viewport; finger swipe stays native.
   const projectViewport=document.getElementById('projects-slider-viewport');
   const projectTrack=document.getElementById('projects-slider-track');
   const prevProjects=document.getElementById('projects-prev');
   const nextProjects=document.getElementById('projects-next');
   function getProjectStep(){
-    const first=projectTrack?.querySelector('.project-card');
+    const first=projectTrack?.querySelector(':scope > .project-card');
     if(!first) return 0;
-    const gap=parseFloat(getComputedStyle(projectTrack).gap)||20;
+    const trackStyle=getComputedStyle(projectTrack);
+    const gap=parseFloat(trackStyle.columnGap||trackStyle.gap)||20;
     return first.getBoundingClientRect().width+gap;
   }
   function updateProjectArrows(){
     if(!projectViewport || !prevProjects || !nextProjects) return;
-    const max=Math.max(0,projectViewport.scrollWidth-projectViewport.clientWidth-2);
+    const max=Math.max(0,projectViewport.scrollWidth-projectViewport.clientWidth);
     prevProjects.disabled=projectViewport.scrollLeft<=2;
-    nextProjects.disabled=projectViewport.scrollLeft>=max;
+    nextProjects.disabled=projectViewport.scrollLeft>=max-2;
   }
-  function moveProjects(direction){
+  function moveProjects(direction,event){
+    if(event){event.preventDefault();event.stopPropagation();}
     if(!projectViewport) return;
-    projectViewport.scrollBy({left:direction*getProjectStep(),behavior:'smooth'});
+    const max=Math.max(0,projectViewport.scrollWidth-projectViewport.clientWidth);
+    const target=Math.max(0,Math.min(max,projectViewport.scrollLeft+direction*getProjectStep()));
+    projectViewport.scrollTo({left:target,behavior:'smooth'});
   }
-  if(prevProjects) prevProjects.addEventListener('click',()=>moveProjects(-1));
-  if(nextProjects) nextProjects.addEventListener('click',()=>moveProjects(1));
+  if(prevProjects) prevProjects.addEventListener('click',e=>moveProjects(-1,e));
+  if(nextProjects) nextProjects.addEventListener('click',e=>moveProjects(1,e));
   if(projectViewport){
     projectViewport.addEventListener('scroll',updateProjectArrows,{passive:true});
     window.addEventListener('resize',updateProjectArrows);
     window.setTimeout(updateProjectArrows,120);
+    window.setTimeout(updateProjectArrows,700);
     updateProjectArrows();
   }
 
