@@ -9,9 +9,16 @@ html{background:#08080a}body{overflow-x:hidden;min-width:320px}.project-card,.pr
   overflow-x:auto;overflow-y:hidden;
   scroll-snap-type:x mandatory;scroll-behavior:smooth;
   -webkit-overflow-scrolling:touch;touch-action:pan-x pinch-zoom;
-  overscroll-behavior-x:contain;overscroll-behavior-y:auto;
-  scrollbar-width:none;padding:4px 2px 14px;
+  overscroll-behavior:contain;scrollbar-width:none;
+  padding:4px 2px 14px;isolation:isolate;
+  anchor-name:--project-showcase;
 }
+.projects-slider-viewport:focus{outline:none}
+.projects-slider-track{position:relative;transform:none!important}
+.projects-slider-track > .project-card{position:relative;scroll-snap-stop:always}
+.projects-slider-viewport img,.projects-slider-viewport video{pointer-events:none}
+.projects-slider-viewport .project-card{cursor:pointer}
+
 .project-preview-contain{object-fit:contain!important;background:#08080a;}
 .projects-slider-viewport::-webkit-scrollbar{display:none}
 .projects-slider-track{display:flex;gap:1.25rem;width:max-content;align-items:stretch}
@@ -951,12 +958,24 @@ html{scroll-behavior:smooth}
     if(!projectViewport) return;
     const max=Math.max(0,projectViewport.scrollWidth-projectViewport.clientWidth);
     const target=Math.max(0,Math.min(max,projectViewport.scrollLeft+direction*getProjectStep()));
-    projectViewport.scrollTo({left:target,behavior:'smooth'});
+    // Only the showcase viewport moves; never scroll the document or other sections.
+    projectViewport.scrollTo({left:target,top:0,behavior:'smooth'});
   }
-  if(prevProjects) prevProjects.addEventListener('click',e=>moveProjects(-1,e));
-  if(nextProjects) nextProjects.addEventListener('click',e=>moveProjects(1,e));
+  if(prevProjects) prevProjects.addEventListener('click',e=>moveProjects(-1,e),{passive:false});
+  if(nextProjects) nextProjects.addEventListener('click',e=>moveProjects(1,e),{passive:false});
   if(projectViewport){
     projectViewport.addEventListener('scroll',updateProjectArrows,{passive:true});
+    projectViewport.addEventListener('wheel',e=>{
+      if(Math.abs(e.deltaX)>Math.abs(e.deltaY) && projectViewport.scrollWidth>projectViewport.clientWidth){
+        e.preventDefault();
+        projectViewport.scrollLeft+=e.deltaX;
+      }
+    },{passive:false});
+    projectViewport.addEventListener('keydown',e=>{
+      if(e.key==='ArrowRight'){e.preventDefault();moveProjects(1,e);}
+      if(e.key==='ArrowLeft'){e.preventDefault();moveProjects(-1,e);}
+    });
+    projectViewport.setAttribute('tabindex','0');
     window.addEventListener('resize',updateProjectArrows);
     window.setTimeout(updateProjectArrows,120);
     window.setTimeout(updateProjectArrows,700);
