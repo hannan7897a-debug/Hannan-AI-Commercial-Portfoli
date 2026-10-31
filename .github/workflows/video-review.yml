@@ -1,0 +1,80 @@
+name: Review newly uploaded portfolio videos
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/video-review.yml"
+      - "assets/genz ad.mp4"
+      - "assets/my laviva ad 2.mp4"
+      - "assets/pakwan catering ad.mp4"
+      - "assets/train ad.mp4"
+
+permissions:
+  contents: read
+
+jobs:
+  make-contact-sheet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install video tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --quiet pillow
+      - name: Extract review frames and metadata
+        run: |
+          mkdir -p review/frames
+          python - <<'PY'
+          import json, os, subprocess
+          from pathlib import Path
+          from PIL import Image, ImageDraw, ImageFont
+          names = ["genz ad.mp4", "my laviva ad 2.mp4", "pakwan catering ad.mp4", "train ad.mp4"]
+          tiles = []
+          report = []
+          for name in names:
+              path = Path("assets") / name
+              if not path.exists():
+                  report.append({"file": name, "error": "file not found"})
+                  continue
+              probe = subprocess.check_output([
+                  "ffprobe", "-v", "error", "-show_entries",
+                  "format=duration:stream=codec_name,width,height,r_frame_rate",
+                  "-of", "json", str(path)
+              ], text=True)
+              info = json.loads(probe)
+              duration = float(info.get("format", {}).get("duration", 0) or 0)
+              report.append({"file": name, "bytes": path.stat().st_size,
+                             "duration_seconds": round(duration, 2),
+                             "streams": info.get("streams", [])})
+              frames = []
+              for pct in (0.12, 0.38, 0.65, 0.88):
+                  ts = max(0, min(duration - 0.08, duration * pct))
+                  out = Path("review/frames") / (path.stem.replace(" ", "_") + f"_{int(pct*100)}.jpg")
+                  subprocess.run([
+                      "ffmpeg", "-loglevel", "error", "-ss", str(ts), "-i", str(path),
+                      "-frames:v", "1", "-vf", "scale=480:270:force_original_aspect_ratio=decrease,pad=480:270:(ow-iw)/2:(oh-ih)/2",
+                      "-q:v", "3", "-y", str(out)
+                  ], check=True)
+                  im = Image.open(out).convert("RGB")
+                  frames.append((im, f"{name} — {ts:.1f}s"))
+              tiles.extend(frames)
+          font = ImageFont.load_default()
+          cols, tile_w, tile_h, label_h = 2, 480, 270, 38
+          rows = (len(tiles)+cols-1)//cols
+          sheet = Image.new("RGB", (cols*tile_w, rows*(tile_h+label_h)), "#101014")
+          draw = ImageDraw.Draw(sheet)
+          for i, (im, label) in enumerate(tiles):
+              x, y = (i%cols)*tile_w, (i//cols)*(tile_h+label_h)
+              sheet.paste(im, (x,y))
+              draw.text((x+8,y+tile_h+8), label, fill="white", font=font)
+          sheet.save("review/contact-sheet.jpg", quality=90)
+          Path("review/metadata.json").write_text(json.dumps(report, indent=2))
+          print(json.dumps(report, indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-video-review
+          path: review/
+          retention-days: 2
