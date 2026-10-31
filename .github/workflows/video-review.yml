@@ -31,10 +31,10 @@ jobs:
           from pathlib import Path
           from PIL import Image, ImageDraw, ImageFont
           specs = [
-              ("genz ad.mp4", "genz-style-in-every-thread.jpg", 22.2),
+              ("genz ad.mp4", "genz-style-in-every-thread.jpg", 3.0),
               ("my laviva ad 2.mp4", "laviva-the-wrong-target.jpg", 7.3),
-              ("pakwan catering ad.mp4", "al-roohi-al-raza-catering.jpg", 29.2),
-              ("train ad.mp4", "tokyo-platform-style-in-motion.jpg", 6.5),
+              ("pakwan catering ad.mp4", "al-roohi-al-raza-catering.jpg", 21.5),
+              ("train ad.mp4", "tokyo-platform-style-in-motion.jpg", 3.8),
           ]
           report, tiles = [], []
           for name, poster_name, ts in specs:
